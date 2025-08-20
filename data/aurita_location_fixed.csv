@@ -1,0 +1,257 @@
+observed_on,latitude,longitude,place_county_name,place_state_name,url,image_url,tipo
+10/04/2005,-22.4155188206,-43.3984626205,Petrópolis,Rio de Janeiro,https://www.inaturalist.org/observations/183122968,https://static.inaturalist.org/photos/319425173/medium.jpeg,N-H
+01/05/2006,-21.9250343742,-42.8714539978,Além Paraíba,Minas Gerais,https://www.inaturalist.org/observations/12180677,https://inaturalist-open-data.s3.amazonaws.com/photos/17489289/medium.jpeg,N-H
+23/10/2009,-22.27386096,-47.5641396896,Rio Claro,São Paulo,https://www.inaturalist.org/observations/37692783,https://inaturalist-open-data.s3.amazonaws.com/photos/59806858/medium.png,N-H
+21/05/2011,-21.8682758598,-42.8961583229,Além Paraíba,Minas Gerais,https://www.inaturalist.org/observations/260913187,https://inaturalist-open-data.s3.amazonaws.com/photos/468643246/medium.jpg,N-H
+01/07/2011,-23.1596875152,-44.8200742088,Cunha,São Paulo,https://www.inaturalist.org/observations/115339263,https://static.inaturalist.org/photos/194688240/medium.jpg,N-H
+02/09/2012,-22.428037289,-43.2463621042,Petrópolis,Rio de Janeiro,https://www.inaturalist.org/observations/37525090,https://static.inaturalist.org/photos/59504259/medium.jpeg,N-H
+08/01/2013,-21.9072528589,-42.7206268494,Sapucaia,Rio de Janeiro,https://www.inaturalist.org/observations/38005033,https://inaturalist-open-data.s3.amazonaws.com/photos/60337332/medium.jpg,N-H
+08/01/2013,-21.9429133745,-42.7324592792,Sapucaia,Rio de Janeiro,https://www.inaturalist.org/observations/38005034,https://inaturalist-open-data.s3.amazonaws.com/photos/60337335/medium.jpg,N-H
+08/01/2013,-21.8828903465,-42.6236584719,Sapucaia,Rio de Janeiro,https://www.inaturalist.org/observations/53431566,https://inaturalist-open-data.s3.amazonaws.com/photos/84981695/medium.jpg,N-H
+13/04/2013,-22.5029011466,-43.3067367048,Petrópolis,Rio de Janeiro,https://www.inaturalist.org/observations/106353745,https://static.inaturalist.org/photos/178644874/medium.jpg,N-H
+01/09/2013,-23.1438437446,-45.3369526251,Taubaté,São Paulo,https://www.inaturalist.org/observations/37792653,https://inaturalist-open-data.s3.amazonaws.com/photos/59984866/medium.jpg,N-H
+09/10/2013,-23.4609881391,-45.1666077984,Ubatuba,São Paulo,https://www.inaturalist.org/observations/194985683,https://static.inaturalist.org/photos/342903176/medium.jpeg,H
+09/10/2013,-23.5518541073,-45.1482833689,Ubatuba,São Paulo,https://www.inaturalist.org/observations/194985684,https://static.inaturalist.org/photos/342903191/medium.jpeg,H
+03/12/2013,-22.4472378064,-46.7923556803,Águas de Lindóia,São Paulo,https://www.inaturalist.org/observations/224303314,https://static.inaturalist.org/photos/397529427/medium.jpg,N-H
+01/01/2014,-23.2988399993,-46.3953058777,Nazaré Paulista,São Paulo,https://www.inaturalist.org/observations/102972397,https://inaturalist-open-data.s3.amazonaws.com/photos/172238202/medium.jpg,N-H
+20/04/2014,-23.0320456635,-46.3751519742,Nazaré Paulista,São Paulo,http://www.inaturalist.org/observations/633677,https://inaturalist-open-data.s3.amazonaws.com/photos/797225/medium.jpg,N-H
+19/07/2014,-23.4167062191,-46.6205388415,São Paulo,São Paulo,https://www.inaturalist.org/observations/195946601,https://inaturalist-open-data.s3.amazonaws.com/photos/344853577/medium.jpg,N-H
+17/01/2015,-20.9772360767,-42.0850135532,Porciúncula,Rio de Janeiro,https://www.inaturalist.org/observations/123898499,https://inaturalist-open-data.s3.amazonaws.com/photos/209945113/medium.jpeg,H
+12/02/2015,-22.1681631873,-45.0697717862,São Lourenço,Minas Gerais,https://www.inaturalist.org/observations/177351296,https://inaturalist-open-data.s3.amazonaws.com/photos/308440391/medium.jpg,N-H
+24/09/2015,-22.0735351194,-45.0403447017,São Lourenço,Minas Gerais,https://www.inaturalist.org/observations/227639481,https://inaturalist-open-data.s3.amazonaws.com/photos/403859294/medium.jpg,N-H
+04/12/2015,-20.9927204116,-42.1342920535,Porciúncula,Rio de Janeiro,https://www.inaturalist.org/observations/128377916,https://inaturalist-open-data.s3.amazonaws.com/photos/218053549/medium.jpeg,N-H
+27/01/2016,-23.406851308,-46.7522616885,São Paulo,São Paulo,https://www.inaturalist.org/observations/73508879,https://inaturalist-open-data.s3.amazonaws.com/photos/120017645/medium.jpg,H
+12/02/2016,-20.8458162194,-41.8218823306,Porciúncula,Rio de Janeiro,https://www.inaturalist.org/observations/123756598,https://inaturalist-open-data.s3.amazonaws.com/photos/209685504/medium.jpeg,N-H
+12/02/2016,-20.9863547088,-41.9899538532,Porciúncula,Rio de Janeiro,https://www.inaturalist.org/observations/123756601,https://inaturalist-open-data.s3.amazonaws.com/photos/209685531/medium.jpeg,N-H
+21/02/2016,-20.9595302864,-42.191588766,Tombos,Minas Gerais,https://www.inaturalist.org/observations/214613744,https://inaturalist-open-data.s3.amazonaws.com/photos/379356790/medium.jpeg,N-H
+28/02/2016,-20.9374599447,-42.109118634,Tombos,Minas Gerais,https://www.inaturalist.org/observations/223785185,https://inaturalist-open-data.s3.amazonaws.com/photos/396557229/medium.jpeg,N-H
+26/05/2016,-23.423778498,-46.7931642221,São Paulo,São Paulo,https://www.inaturalist.org/observations/73023625,https://inaturalist-open-data.s3.amazonaws.com/photos/119161815/medium.jpg,H
+08/06/2016,-22.1512290693,-45.0473141152,São Lourenço,Minas Gerais,https://www.inaturalist.org/observations/47023817,https://inaturalist-open-data.s3.amazonaws.com/photos/74569665/medium.jpg,N-H
+10/10/2016,-22.4301189391,-43.1164243482,Petrópolis,Rio de Janeiro,https://www.inaturalist.org/observations/29935165,https://inaturalist-open-data.s3.amazonaws.com/photos/46745021/medium.jpeg,N-H
+01/12/2016,-20.8634065922,-42.15678415,Tombos,Minas Gerais,https://www.inaturalist.org/observations/219126752,https://inaturalist-open-data.s3.amazonaws.com/photos/387824553/medium.jpeg,H
+01/12/2016,-20.9375694208,-42.0217855819,Tombos,Minas Gerais,https://www.inaturalist.org/observations/219126755,https://inaturalist-open-data.s3.amazonaws.com/photos/387824546/medium.jpeg,H
+12/03/2017,-22.3555769021,-42.8101573123,Teresópolis,Rio de Janeiro,https://www.inaturalist.org/observations/5308815,https://inaturalist-open-data.s3.amazonaws.com/photos/6579977/medium.jpeg,N-H
+16/04/2017,-21.9699281997,-42.7420536651,Sapucaia,Rio de Janeiro,https://www.inaturalist.org/observations/5805592,https://inaturalist-open-data.s3.amazonaws.com/photos/7446484/medium.jpeg,N-H
+22/04/2017,-22.1192728801,-42.9520234701,São José do Vale do Rio Preto,Rio de Janeiro,https://www.inaturalist.org/observations/6007282,https://inaturalist-open-data.s3.amazonaws.com/photos/7515207/medium.jpeg,N-H
+24/06/2017,-22.0492027109,-45.0911095738,São Lourenço,Minas Gerais,https://www.inaturalist.org/observations/195294804,https://inaturalist-open-data.s3.amazonaws.com/photos/343525966/medium.jpg,N-H
+07/09/2017,-20.9137936074,-42.1510589509,Porciúncula,Rio de Janeiro,https://www.inaturalist.org/observations/123898555,https://inaturalist-open-data.s3.amazonaws.com/photos/209945275/medium.jpeg,N-H
+08/09/2017,-21.9954670803,-45.2311416584,Lambari,Minas Gerais,https://www.inaturalist.org/observations/199507506,https://static.inaturalist.org/photos/351845044/medium.jpeg,N-H
+26/11/2017,-22.6819795976,-45.5046873275,Pindamonhangaba,São Paulo,https://www.inaturalist.org/observations/40790050,https://inaturalist-open-data.s3.amazonaws.com/photos/64660028/medium.jpeg,N-H
+29/11/2017,-23.0360304507,-46.3620530146,Nazaré Paulista,São Paulo,https://www.inaturalist.org/observations/8976388,https://static.inaturalist.org/photos/12106529/medium.jpeg,N-H
+26/01/2018,-22.0408214301,-45.0633333902,São Lourenço,Minas Gerais,https://www.inaturalist.org/observations/148327267,https://static.inaturalist.org/photos/255405983/medium.jpg,N-H
+04/02/2018,-22.2562313673,-43.1109346228,Petrópolis,Rio de Janeiro,https://www.inaturalist.org/observations/82057761,https://inaturalist-open-data.s3.amazonaws.com/photos/134635565/medium.jpeg,N-H
+15/05/2018,-20.6992846277,-42.832841555,Viçosa,Minas Gerais,https://www.inaturalist.org/observations/56944222,https://inaturalist-open-data.s3.amazonaws.com/photos/90783408/medium.jpeg,N-H
+21/05/2018,-20.7976859851,-42.9327348498,Viçosa,Minas Gerais,https://www.inaturalist.org/observations/49130181,https://inaturalist-open-data.s3.amazonaws.com/photos/77983604/medium.jpeg,N-H
+22/05/2018,-20.7743199265,-42.8874283204,Viçosa,Minas Gerais,https://www.inaturalist.org/observations/54206013,https://inaturalist-open-data.s3.amazonaws.com/photos/86240397/medium.jpeg,N-H
+05/06/2018,-23.2662723599,-46.820808092,Jundiaí,São Paulo,https://www.inaturalist.org/observations/38919571,https://static.inaturalist.org/photos/61850605/medium.jpg,N-H
+17/06/2018,-20.7890819196,-42.9423021831,Viçosa,Minas Gerais,https://www.inaturalist.org/observations/56792846,https://inaturalist-open-data.s3.amazonaws.com/photos/90529591/medium.jpeg,N-H
+21/06/2018,-23.4495065081,-46.2824953413,Mogi das Cruzes,São Paulo,https://www.inaturalist.org/observations/189977208,https://static.inaturalist.org/photos/332931003/medium.jpeg,N-H
+17/08/2018,-22.7350587679,-48.1575348321,Anhembi,São Paulo,https://www.inaturalist.org/observations/196664033,https://inaturalist-open-data.s3.amazonaws.com/photos/346176670/medium.jpg,N-H
+18/08/2018,-22.3035762898,-45.6970738501,Santa Rita do Ibitipoca,Minas Gerais,https://www.inaturalist.org/observations/136060528,https://static.inaturalist.org/photos/232158643/medium.jpeg,N-H
+10/09/2018,-20.6402610322,-42.881020014,Teixeiras,Minas Gerais,https://www.inaturalist.org/observations/56765683,https://inaturalist-open-data.s3.amazonaws.com/photos/90474162/medium.jpeg,H
+21/12/2018,-22.4196709741,-43.3084343277,Petrópolis,Rio de Janeiro,https://www.inaturalist.org/observations/54160622,https://inaturalist-open-data.s3.amazonaws.com/photos/86157386/medium.jpeg,N-H
+21/12/2018,-22.504930434,-43.3949975733,Miguel Pereira,Rio de Janeiro,https://www.inaturalist.org/observations/56656484,https://inaturalist-open-data.s3.amazonaws.com/photos/90301187/medium.jpeg,N-H
+27/12/2018,-21.0659865963,-42.6355350106,Guiricema,Minas Gerais,https://www.inaturalist.org/observations/56634219,https://inaturalist-open-data.s3.amazonaws.com/photos/90264256/medium.jpeg,N-H
+29/12/2018,-21.1324284967,-42.7588421395,Guidoval,Minas Gerais,https://www.inaturalist.org/observations/56559263,https://inaturalist-open-data.s3.amazonaws.com/photos/90141126/medium.jpeg,N-H
+01/01/2019,-23.3735458927,-45.6348582286,Jambeiro,São Paulo,https://www.inaturalist.org/observations/35943531,https://static.inaturalist.org/photos/56746547/medium.jpg,N-H
+04/01/2019,-21.1686653037,-42.7738943245,Guidoval,Minas Gerais,https://www.inaturalist.org/observations/56541206,https://inaturalist-open-data.s3.amazonaws.com/photos/90110706/medium.jpeg,N-H
+04/01/2019,-21.1596477205,-42.7047330476,Guidoval,Minas Gerais,https://www.inaturalist.org/observations/56541209,https://inaturalist-open-data.s3.amazonaws.com/photos/90110874/medium.jpeg,H
+07/01/2019,-21.138470638,-42.7339607819,Guidoval,Minas Gerais,https://www.inaturalist.org/observations/56539615,https://inaturalist-open-data.s3.amazonaws.com/photos/90107611/medium.jpeg,N-H
+08/01/2019,-21.1443964441,-42.7237200874,Guidoval,Minas Gerais,https://www.inaturalist.org/observations/56536829,https://inaturalist-open-data.s3.amazonaws.com/photos/90104575/medium.jpeg,N-H
+21/02/2019,-21.0216606838,-42.65035194,Guidoval,Minas Gerais,https://www.inaturalist.org/observations/54162202,https://inaturalist-open-data.s3.amazonaws.com/photos/86166813/medium.jpeg,N-H
+23/02/2019,-21.0481392258,-42.6456061294,Guidoval,Minas Gerais,https://www.inaturalist.org/observations/56529703,https://inaturalist-open-data.s3.amazonaws.com/photos/90092206/medium.jpeg,N-H
+25/03/2019,-20.7131357738,-42.8152924306,Viçosa,Minas Gerais,https://www.inaturalist.org/observations/56528219,https://inaturalist-open-data.s3.amazonaws.com/photos/90089312/medium.jpeg,N-H
+04/04/2019,-20.6487028808,-42.9974602485,Viçosa,Minas Gerais,https://www.inaturalist.org/observations/56526000,https://inaturalist-open-data.s3.amazonaws.com/photos/90086906/medium.jpeg,N-H
+19/04/2019,-21.0239252069,-42.6791270374,Guidoval,Minas Gerais,https://www.inaturalist.org/observations/54204838,https://inaturalist-open-data.s3.amazonaws.com/photos/86238401/medium.jpeg,N-H
+19/04/2019,-21.0805253738,-42.6565344032,Guidoval,Minas Gerais,https://www.inaturalist.org/observations/56524433,https://inaturalist-open-data.s3.amazonaws.com/photos/90084106/medium.jpeg,N-H
+19/04/2019,-21.144139649,-42.7051366757,Guidoval,Minas Gerais,https://www.inaturalist.org/observations/56541207,https://inaturalist-open-data.s3.amazonaws.com/photos/90111262/medium.jpeg,N-H
+07/05/2019,-22.922367768,-45.7464877406,Santo Antônio do Pinhal,São Paulo,https://www.inaturalist.org/observations/185986901,https://inaturalist-open-data.s3.amazonaws.com/photos/324927742/medium.jpeg,H
+08/07/2019,-21.1173355859,-42.6570553028,Guidoval,Minas Gerais,https://www.inaturalist.org/observations/56056304,https://inaturalist-open-data.s3.amazonaws.com/photos/89299102/medium.jpeg,N-H
+09/07/2019,-22.4705637746,-43.0280712533,Petrópolis,Rio de Janeiro,https://www.inaturalist.org/observations/82057794,https://inaturalist-open-data.s3.amazonaws.com/photos/134637404/medium.jpeg,N-H
+28/07/2019,-23.0721896233,-44.4722770303,Parati,Rio de Janeiro,https://www.inaturalist.org/observations/29752063,https://inaturalist-open-data.s3.amazonaws.com/photos/86230722/medium.jpeg,N-H
+03/08/2019,-21.1620874978,-42.6659416389,Guidoval,Minas Gerais,https://www.inaturalist.org/observations/55526933,https://inaturalist-open-data.s3.amazonaws.com/photos/88419638/medium.jpeg,N-H
+11/08/2019,-20.6162535375,-42.8145142335,Viçosa,Minas Gerais,https://www.inaturalist.org/observations/55439191,https://inaturalist-open-data.s3.amazonaws.com/photos/88277571/medium.jpeg,N-H
+11/09/2019,-21.1564545448,-42.7278066049,Guidoval,Minas Gerais,https://www.inaturalist.org/observations/55315430,https://inaturalist-open-data.s3.amazonaws.com/photos/88065494/medium.jpeg,N-H
+11/09/2019,-21.1444814479,-42.6729643202,Guidoval,Minas Gerais,https://www.inaturalist.org/observations/55315437,https://inaturalist-open-data.s3.amazonaws.com/photos/88066173/medium.jpeg,N-H
+02/10/2019,-22.0313490779,-45.1733766838,São Lourenço,Minas Gerais,https://www.inaturalist.org/observations/109393128,https://inaturalist-open-data.s3.amazonaws.com/photos/184365312/medium.jpeg,N-H
+16/10/2019,-22.5934739918,-44.5547620905,Resende,Rio de Janeiro,https://www.inaturalist.org/observations/195294758,https://inaturalist-open-data.s3.amazonaws.com/photos/343525782/medium.jpg,N-H
+15/11/2019,-20.8450147856,-42.0941861715,Porciúncula,Rio de Janeiro,https://www.inaturalist.org/observations/123902020,https://inaturalist-open-data.s3.amazonaws.com/photos/209951347/medium.jpeg,N-H
+03/05/2020,-21.0828037247,-42.6215760029,Guidoval,Minas Gerais,https://www.inaturalist.org/observations/54205511,https://inaturalist-open-data.s3.amazonaws.com/photos/86239739/medium.jpeg,N-H
+15/05/2020,-23.3607830557,-47.1882332678,Cabreúva,São Paulo,https://www.inaturalist.org/observations/153129940,https://inaturalist-open-data.s3.amazonaws.com/photos/264438642/medium.jpg,N-H
+17/05/2020,-21.0165921786,-42.6370263435,Guidoval,Minas Gerais,https://www.inaturalist.org/observations/55051058,https://inaturalist-open-data.s3.amazonaws.com/photos/87630214/medium.jpeg,N-H
+07/06/2020,-21.1468529165,-42.6799635853,Guidoval,Minas Gerais,https://www.inaturalist.org/observations/54203103,https://inaturalist-open-data.s3.amazonaws.com/photos/86235408/medium.jpeg,N-H
+21/06/2020,-21.0555248212,-42.7803222567,Guidoval,Minas Gerais,https://www.inaturalist.org/observations/54294642,https://inaturalist-open-data.s3.amazonaws.com/photos/86384883/medium.jpeg,H
+21/06/2020,-21.064278488,-42.7787936264,Guidoval,Minas Gerais,https://www.inaturalist.org/observations/54295370,https://inaturalist-open-data.s3.amazonaws.com/photos/86386904/medium.jpeg,N-H
+05/07/2020,-20.8084190597,-42.1648838782,Tombos,Minas Gerais,https://www.inaturalist.org/observations/52638240,https://static.inaturalist.org/photos/83689553/medium.jpeg,N-H
+17/07/2020,-23.2875354349,-46.8455686248,Cajamar,São Paulo,https://www.inaturalist.org/observations/103816155,https://static.inaturalist.org/photos/173847783/medium.jpg,N-H
+08/11/2020,-22.1060800618,-46.2008507368,Santa Rita de Caldas,Minas Gerais,https://www.inaturalist.org/observations/64680897,https://inaturalist-open-data.s3.amazonaws.com/photos/104022473/medium.jpg,N-H
+20/11/2020,-22.6344890002,-44.7356250571,São José do Barreiro,São Paulo,https://www.inaturalist.org/observations/215057195,https://inaturalist-open-data.s3.amazonaws.com/photos/380173582/medium.png,N-H
+24/11/2020,-21.3511729651,-50.2011289912,Birigui,São Paulo,https://www.inaturalist.org/observations/115278030,https://static.inaturalist.org/photos/194591780/medium.jpeg,H
+29/11/2020,-21.7826175198,-45.9401047959,Poço Fundo,Minas Gerais,https://www.inaturalist.org/observations/65937382,https://inaturalist-open-data.s3.amazonaws.com/photos/106210853/medium.jpeg,N-H
+25/12/2020,-22.2932294074,-43.3571455974,Petrópolis,Rio de Janeiro,https://www.inaturalist.org/observations/67062754,https://inaturalist-open-data.s3.amazonaws.com/photos/108256720/medium.jpeg,N-H
+27/12/2020,-23.4854920183,-45.8888155272,Salesópolis,São Paulo,https://www.inaturalist.org/observations/102418520,https://inaturalist-open-data.s3.amazonaws.com/photos/171196562/medium.jpeg,N-H
+09/02/2021,-22.3482605439,-43.1858434748,Petrópolis,Rio de Janeiro,https://www.inaturalist.org/observations/82057875,https://inaturalist-open-data.s3.amazonaws.com/photos/134644002/medium.jpeg,H
+09/02/2021,-22.7537535256,-44.780926104,São José do Barreiro,São Paulo,https://www.inaturalist.org/observations/215057194,https://inaturalist-open-data.s3.amazonaws.com/photos/380173282/medium.jpg,H
+14/02/2021,-23.1657402803,-44.9746730338,Cunha,São Paulo,https://www.inaturalist.org/observations/123125691,https://inaturalist-open-data.s3.amazonaws.com/photos/208544606/medium.png,N-H
+27/02/2021,-23.2475896407,-47.0695631027,Cabreúva,São Paulo,https://www.inaturalist.org/observations/242289486,https://static.inaturalist.org/photos/431937678/medium.jpg,N-H
+27/02/2021,-23.2808946036,-47.1954587542,Cabreúva,São Paulo,https://www.inaturalist.org/observations/242289492,https://static.inaturalist.org/photos/431937681/medium.jpg,N-H
+27/02/2021,-23.3075419365,-47.0902458747,Cabreúva,São Paulo,https://www.inaturalist.org/observations/242289493,https://static.inaturalist.org/photos/431937682/medium.jpg,N-H
+22/03/2021,-23.1128948652,-45.2334914582,Taubaté,São Paulo,https://www.inaturalist.org/observations/72173513,https://inaturalist-open-data.s3.amazonaws.com/photos/117627605/medium.jpeg,N-H
+27/03/2021,-21.1166867496,-41.9354458396,Natividade,Rio de Janeiro,https://www.inaturalist.org/observations/229861077,https://static.inaturalist.org/photos/408070882/medium.jpg,H
+05/04/2021,-22.7372831275,-44.669107521,São José do Barreiro,São Paulo,https://www.inaturalist.org/observations/215063642,https://inaturalist-open-data.s3.amazonaws.com/photos/380184265/medium.jpeg,N-H
+05/04/2021,-22.7001220536,-44.6697747518,São José do Barreiro,São Paulo,https://www.inaturalist.org/observations/215063650,https://inaturalist-open-data.s3.amazonaws.com/photos/380184878/medium.jpeg,N-H
+23/04/2021,-20.8881307466,-42.1519378554,Tombos,Minas Gerais,https://www.inaturalist.org/observations/214606252,https://inaturalist-open-data.s3.amazonaws.com/photos/379342288/medium.jpeg,H
+06/05/2021,-22.8928044952,-46.3057661751,Extrema,Minas Gerais,https://www.inaturalist.org/observations/79539443,https://inaturalist-open-data.s3.amazonaws.com/photos/130286734/medium.jpeg,N-H
+28/05/2021,-23.2717614612,-46.8478168117,Jundiaí,São Paulo,https://www.inaturalist.org/observations/264949714,https://static.inaturalist.org/photos/475821666/medium.jpg,N-H
+05/06/2021,-23.5884033513,-46.7863149537,São Paulo,São Paulo,https://www.inaturalist.org/observations/81815163,https://static.inaturalist.org/photos/134201789/medium.jpeg,N-H
+06/06/2021,-23.4162646415,-46.0089685368,Guaratinguetá,São Paulo,https://www.inaturalist.org/observations/81953841,https://static.inaturalist.org/photos/134461254/medium.jpeg,N-H
+21/07/2021,-22.3356954746,-43.1350668273,Petrópolis,Rio de Janeiro,https://www.inaturalist.org/observations/89829324,https://inaturalist-open-data.s3.amazonaws.com/photos/148382452/medium.jpeg,N-H
+03/08/2021,-23.2668341965,-46.6470555756,Franco da Rocha,São Paulo,https://www.inaturalist.org/observations/90550437,https://inaturalist-open-data.s3.amazonaws.com/photos/149665581/medium.jpeg,N-H
+03/09/2021,-22.152260127,-45.9709989882,Silvianópolis,Minas Gerais,https://www.inaturalist.org/observations/93659638,https://static.inaturalist.org/photos/155261938/medium.jpeg,N-H
+05/09/2021,-23.378612207,-46.7673065418,Mairiporã,São Paulo,https://www.inaturalist.org/observations/93720673,https://static.inaturalist.org/photos/155371659/medium.jpeg,H
+19/09/2021,-22.3489597258,-43.0422047167,São José do Vale do Rio Preto,Rio de Janeiro,https://www.inaturalist.org/observations/95815011,https://inaturalist-open-data.s3.amazonaws.com/photos/159109099/medium.jpeg,H
+23/09/2021,-22.9918541458,-47.8828540811,Piracicaba,São Paulo,https://www.inaturalist.org/observations/98148181,https://inaturalist-open-data.s3.amazonaws.com/photos/163353396/medium.jpeg,N-H
+12/10/2021,-22.8395169517,-46.21588496,Extrema,Minas Gerais,https://www.inaturalist.org/observations/98045361,https://inaturalist-open-data.s3.amazonaws.com/photos/163160866/medium.jpg,N-H
+14/11/2021,-21.1500350982,-42.1447416728,Itaperuna,Rio de Janeiro,https://www.inaturalist.org/observations/247140332,https://inaturalist-open-data.s3.amazonaws.com/photos/441331695/medium.jpeg,N-H
+20/11/2021,-23.589668477,-45.8286532578,Salesópolis,São Paulo,https://www.inaturalist.org/observations/102825594,https://static.inaturalist.org/photos/171968589/medium.jpg,H
+06/12/2021,-23.4875200437,-45.8385658133,Salesópolis,São Paulo,https://www.inaturalist.org/observations/102831915,https://inaturalist-open-data.s3.amazonaws.com/photos/171979985/medium.jpg,N-H
+23/01/2022,-23.2442407553,-46.4506285616,Guarulhos,São Paulo,https://www.inaturalist.org/observations/129733131,https://inaturalist-open-data.s3.amazonaws.com/photos/220509254/medium.jpg,N-H
+28/01/2022,-23.3520971579,-45.7392518551,Paraibuna,São Paulo,https://www.inaturalist.org/observations/105765048,https://static.inaturalist.org/photos/177533847/medium.jpeg,N-H
+26/02/2022,-23.3747370171,-46.7136715971,Franco da Rocha,São Paulo,https://www.inaturalist.org/observations/120748857,https://static.inaturalist.org/photos/204261121/medium.jpeg,H
+06/03/2022,-23.518985339,-45.9971494246,Salesópolis,São Paulo,https://www.inaturalist.org/observations/272309083,https://static.inaturalist.org/photos/489895712/medium.jpg,N-H
+10/03/2022,-23.1366525739,-45.2660891075,Taubaté,São Paulo,https://www.inaturalist.org/observations/108324770,https://inaturalist-open-data.s3.amazonaws.com/photos/182361138/medium.jpeg,N-H
+27/03/2022,-20.8249892389,-42.0002075217,Porciúncula,Rio de Janeiro,https://www.inaturalist.org/observations/123756574,https://inaturalist-open-data.s3.amazonaws.com/photos/209685131/medium.jpg,N-H
+04/04/2022,-22.9832546756,-46.296446547,Extrema,Minas Gerais,https://www.inaturalist.org/observations/111792923,https://inaturalist-open-data.s3.amazonaws.com/photos/188765080/medium.jpeg,N-H
+23/05/2022,-23.0905750647,-44.9368066504,Cunha,São Paulo,https://www.inaturalist.org/observations/179749553,https://static.inaturalist.org/photos/312988985/medium.jpeg,N-H
+09/07/2022,-22.1803398202,-45.1320098324,São Lourenço,Minas Gerais,https://www.inaturalist.org/observations/143724188,https://inaturalist-open-data.s3.amazonaws.com/photos/246536486/medium.jpeg,N-H
+18/07/2022,-23.1244102586,-46.0592539797,São José dos Campos,São Paulo,https://www.inaturalist.org/observations/126860645,https://inaturalist-open-data.s3.amazonaws.com/photos/215296953/medium.jpg,N-H
+19/07/2022,-21.8308191418,-46.2885215274,Caldas,Minas Gerais,https://www.inaturalist.org/observations/198058831,https://inaturalist-open-data.s3.amazonaws.com/photos/348994793/medium.jpg,N-H
+26/07/2022,-22.0456765678,-45.150737819,São Lourenço,Minas Gerais,https://www.inaturalist.org/observations/146795135,https://static.inaturalist.org/photos/252459960/medium.jpeg,N-H
+19/08/2022,-23.2892054943,-45.2708308752,Natividade da Serra,São Paulo,https://www.inaturalist.org/observations/138557584,https://inaturalist-open-data.s3.amazonaws.com/photos/236845852/medium.jpeg,N-H
+30/10/2022,-20.9808866271,-42.1181681752,Porciúncula,Rio de Janeiro,https://www.inaturalist.org/observations/140925659,https://inaturalist-open-data.s3.amazonaws.com/photos/241311387/medium.jpg,H
+05/11/2022,-22.3475245353,-47.1826605061,Mogi Guaçu,São Paulo,https://www.inaturalist.org/observations/283215545,https://static.inaturalist.org/photos/508875117/medium.jpg,N-H
+07/01/2023,-22.0003665079,-45.0109986849,São Lourenço,Minas Gerais,https://www.inaturalist.org/observations/146398208,https://inaturalist-open-data.s3.amazonaws.com/photos/251685253/medium.jpeg,N-H
+16/01/2023,-23.5160244422,-45.8743790431,Salesópolis,São Paulo,https://www.inaturalist.org/observations/147201131,https://static.inaturalist.org/photos/253248832/medium.jpeg,N-H
+24/01/2023,-22.674154744,-45.4697337757,São Bento do Sapucaí,São Paulo,https://www.inaturalist.org/observations/147295718,https://static.inaturalist.org/photos/253431681/medium.jpeg,N-H
+07/02/2023,-23.1956761732,-45.5235269461,Taubaté,São Paulo,https://www.inaturalist.org/observations/149685585,https://static.inaturalist.org/photos/257968957/medium.jpeg,N-H
+11/02/2023,-23.5148836587,-45.8438229349,Salesópolis,São Paulo,https://www.inaturalist.org/observations/148865239,https://static.inaturalist.org/photos/256431618/medium.jpg,N-H
+19/02/2023,-22.6579667797,-44.6730172088,São José do Barreiro,São Paulo,https://www.inaturalist.org/observations/215057209,https://inaturalist-open-data.s3.amazonaws.com/photos/380173941/medium.jpeg,H
+20/02/2023,-22.4138119106,-43.5885887803,Miguel Pereira,Rio de Janeiro,https://www.inaturalist.org/observations/149287711,https://static.inaturalist.org/photos/257222541/medium.jpeg,N-H
+25/02/2023,-22.4341540341,-42.9164594754,Teresópolis,Rio de Janeiro,https://www.inaturalist.org/observations/149646598,https://inaturalist-open-data.s3.amazonaws.com/photos/257896966/medium.jpg,N-H
+28/02/2023,-22.6552514088,-44.6533402588,São José do Barreiro,São Paulo,https://www.inaturalist.org/observations/151270448,https://inaturalist-open-data.s3.amazonaws.com/photos/260977354/medium.jpeg,N-H
+01/03/2023,-22.7282998611,-44.7906410352,São José do Barreiro,São Paulo,https://www.inaturalist.org/observations/215057222,https://inaturalist-open-data.s3.amazonaws.com/photos/380173909/medium.jpeg,N-H
+15/03/2023,-23.5879420376,-46.0722441232,Mogi das Cruzes,São Paulo,https://www.inaturalist.org/observations/178204510,https://static.inaturalist.org/photos/310048589/medium.jpeg,N-H
+18/03/2023,-22.4322383016,-45.7324091509,Conceição dos Ouros,Minas Gerais,https://www.inaturalist.org/observations/152575101,https://inaturalist-open-data.s3.amazonaws.com/photos/263405867/medium.jpg,N-H
+25/03/2023,-23.9398533673,-46.981839203,Juquitiba,São Paulo,https://www.inaturalist.org/observations/198003914,https://static.inaturalist.org/photos/348884071/medium.jpeg,N-H
+01/04/2023,-23.2335141545,-46.2549500741,Aruja,São Paulo,https://www.inaturalist.org/observations/153193008,https://inaturalist-open-data.s3.amazonaws.com/photos/264558262/medium.jpg,H
+07/04/2023,-20.8425001575,-42.1186450965,Porciúncula,Rio de Janeiro,https://www.inaturalist.org/observations/155394982,https://inaturalist-open-data.s3.amazonaws.com/photos/268608515/medium.jpg,H
+25/04/2023,-23.0391550993,-46.2161547133,Nazaré Paulista,São Paulo,https://www.inaturalist.org/observations/167036286,https://inaturalist-open-data.s3.amazonaws.com/photos/289306485/medium.jpg,N-H
+25/04/2023,-23.0382836924,-46.3962279638,Nazaré Paulista,São Paulo,https://www.inaturalist.org/observations/167036289,https://inaturalist-open-data.s3.amazonaws.com/photos/289306512/medium.jpg,N-H
+25/04/2023,-23.151277794,-46.2524019629,Nazaré Paulista,São Paulo,https://www.inaturalist.org/observations/167036290,https://inaturalist-open-data.s3.amazonaws.com/photos/289306540/medium.jpg,N-H
+25/04/2023,-23.124505619,-46.2957275865,Nazaré Paulista,São Paulo,https://www.inaturalist.org/observations/167036291,https://inaturalist-open-data.s3.amazonaws.com/photos/289306596/medium.jpg,N-H
+25/04/2023,-23.0316063335,-46.236440093,Nazaré Paulista,São Paulo,https://www.inaturalist.org/observations/167036297,https://inaturalist-open-data.s3.amazonaws.com/photos/289306653/medium.jpg,H
+25/04/2023,-23.0128374597,-46.3974704606,Nazaré Paulista,São Paulo,https://www.inaturalist.org/observations/167036298,https://inaturalist-open-data.s3.amazonaws.com/photos/289306609/medium.jpg,N-H
+29/04/2023,-23.3386364739,-46.7606995277,Mairiporã,São Paulo,https://www.inaturalist.org/observations/157894101,https://static.inaturalist.org/photos/272936598/medium.jpeg,N-H
+30/04/2023,-23.181270928,-45.9352224084,São José dos Campos,São Paulo,https://www.inaturalist.org/observations/159984159,https://static.inaturalist.org/photos/276435663/medium.jpeg,N-H
+07/05/2023,-22.2352610247,-42.5085728794,Nova Friburgo,Rio de Janeiro,https://www.inaturalist.org/observations/161162573,https://inaturalist-open-data.s3.amazonaws.com/photos/278549591/medium.jpg,N-H
+14/05/2023,-22.0689571483,-45.2257735724,Conceição das Alagoas,Minas Gerais,https://www.inaturalist.org/observations/222137533,https://static.inaturalist.org/photos/393458278/medium.jpg,N-H
+23/05/2023,-22.8863182894,-44.8297820311,Cachoeira Paulista,São Paulo,https://www.inaturalist.org/observations/182086744,https://inaturalist-open-data.s3.amazonaws.com/photos/317413303/medium.jpeg,N-H
+29/06/2023,-23.5290522827,-45.9236499248,Salesópolis,São Paulo,https://www.inaturalist.org/observations/174327413,https://static.inaturalist.org/photos/302838607/medium.jpg,N-H
+01/07/2023,-23.0049212085,-45.7786586078,São José dos Campos,São Paulo,https://www.inaturalist.org/observations/171197297,https://static.inaturalist.org/photos/297044839/medium.jpg,N-H
+01/07/2023,-23.3217908034,-45.7528872653,São José dos Campos,São Paulo,https://www.inaturalist.org/observations/171388910,https://static.inaturalist.org/photos/297398485/medium.jpg,N-H
+06/07/2023,-20.9875872626,-42.063310048,Tombos,Minas Gerais,https://www.inaturalist.org/observations/171427316,https://static.inaturalist.org/photos/297466548/medium.jpeg,H
+11/07/2023,-22.0252562251,-45.1269153866,São Lourenço,Minas Gerais,https://www.inaturalist.org/observations/174887573,https://inaturalist-open-data.s3.amazonaws.com/photos/303874579/medium.jpeg,N-H
+13/07/2023,-22.0843498576,-45.1884149292,São Lourenço,Minas Gerais,https://www.inaturalist.org/observations/175030024,https://inaturalist-open-data.s3.amazonaws.com/photos/304143194/medium.jpeg,N-H
+13/07/2023,-22.1786119045,-45.1164324136,São Lourenço,Minas Gerais,https://www.inaturalist.org/observations/175030025,https://inaturalist-open-data.s3.amazonaws.com/photos/304143934/medium.jpeg,N-H
+24/07/2023,-23.0044350038,-44.6608285903,Parati,Rio de Janeiro,https://www.inaturalist.org/observations/177593766,https://inaturalist-open-data.s3.amazonaws.com/photos/308898562/medium.jpeg,H
+24/07/2023,-23.0809093256,-44.7369396101,Parati,Rio de Janeiro,https://www.inaturalist.org/observations/181815734,https://inaturalist-open-data.s3.amazonaws.com/photos/316886610/medium.jpeg,H
+19/08/2023,-23.2658517483,-46.6105237421,Mairiporã,São Paulo,https://www.inaturalist.org/observations/179837076,https://inaturalist-open-data.s3.amazonaws.com/photos/313159202/medium.jpeg,N-H
+22/08/2023,-23.0313229042,-44.8289682233,Cunha,São Paulo,https://www.inaturalist.org/observations/179749606,https://static.inaturalist.org/photos/312988364/medium.jpeg,N-H
+10/09/2023,-23.0418606349,-44.8752101304,Cunha,São Paulo,https://www.inaturalist.org/observations/182622457,https://static.inaturalist.org/photos/318448682/medium.jpeg,N-H
+27/09/2023,-23.4274610176,-46.1727658844,Mogi das Cruzes,São Paulo,https://www.inaturalist.org/observations/185309885,https://inaturalist-open-data.s3.amazonaws.com/photos/323617344/medium.jpeg,N-H
+07/10/2023,-22.0268358633,-45.0667335209,São Lourenço,Minas Gerais,https://www.inaturalist.org/observations/187025270,https://static.inaturalist.org/photos/326976701/medium.jpeg,N-H
+14/10/2023,-23.4154220595,-45.8690325671,Salesópolis,São Paulo,https://www.inaturalist.org/observations/187903069,https://static.inaturalist.org/photos/328712114/medium.jpeg,N-H
+14/10/2023,-23.460470696,-46.1839530883,Guaratinguetá,São Paulo,https://www.inaturalist.org/observations/204534201,https://inaturalist-open-data.s3.amazonaws.com/photos/361543585/medium.jpg,N-H
+19/10/2023,-23.1457686926,-45.2390018611,Taubaté,São Paulo,https://www.inaturalist.org/observations/188656803,https://inaturalist-open-data.s3.amazonaws.com/photos/330261181/medium.jpeg,N-H
+31/10/2023,-22.7168803313,-44.6267726206,São José do Barreiro,São Paulo,https://www.inaturalist.org/observations/215083050,https://inaturalist-open-data.s3.amazonaws.com/photos/380225744/medium.jpeg,N-H
+04/12/2023,-23.2034913175,-45.9955240736,São José dos Campos,São Paulo,https://www.inaturalist.org/observations/193388608,https://inaturalist-open-data.s3.amazonaws.com/photos/339719536/medium.jpeg,N-H
+12/12/2023,-23.0391797195,-44.8917691645,Cunha,São Paulo,https://www.inaturalist.org/observations/197265134,https://inaturalist-open-data.s3.amazonaws.com/photos/347391450/medium.jpeg,N-H
+26/12/2023,-21.0383033581,-42.7743996489,Guidoval,Minas Gerais,https://www.inaturalist.org/observations/194890652,https://inaturalist-open-data.s3.amazonaws.com/photos/342705316/medium.jpg,H
+09/01/2024,-22.9011953859,-45.8655029311,São José dos Campos,São Paulo,https://www.inaturalist.org/observations/213763406,https://static.inaturalist.org/photos/377790998/medium.jpeg,N-H
+24/01/2024,-23.2679208657,-45.966378892,São José dos Campos,São Paulo,https://www.inaturalist.org/observations/197830842,https://static.inaturalist.org/photos/348532380/medium.jpeg,N-H
+09/02/2024,-22.8007923693,-44.3874754039,Angra dos Reis,Rio de Janeiro,https://www.inaturalist.org/observations/220010775,https://static.inaturalist.org/photos/389472544/medium.jpg,H
+11/02/2024,-23.0845932515,-46.6550555374,Atibaia,São Paulo,https://www.inaturalist.org/observations/199017164,https://inaturalist-open-data.s3.amazonaws.com/photos/350889513/medium.jpg,H
+11/02/2024,-23.0589646417,-46.7232196439,Atibaia,São Paulo,https://www.inaturalist.org/observations/199017174,https://inaturalist-open-data.s3.amazonaws.com/photos/350889560/medium.jpg,N-H
+11/02/2024,-23.0390500546,-46.7952153881,Atibaia,São Paulo,https://www.inaturalist.org/observations/199017175,https://inaturalist-open-data.s3.amazonaws.com/photos/350889562/medium.jpg,H
+11/02/2024,-22.1629786716,-45.0106752113,São Lourenço,Minas Gerais,https://www.inaturalist.org/observations/199054284,https://inaturalist-open-data.s3.amazonaws.com/photos/350962977/medium.jpeg,N-H
+11/02/2024,-22.8157019089,-45.9919339504,São José dos Campos,São Paulo,https://www.inaturalist.org/observations/199312846,https://static.inaturalist.org/photos/351477558/medium.jpg,N-H
+13/02/2024,-23.0816391939,-46.7288588971,Atibaia,São Paulo,https://www.inaturalist.org/observations/199296980,https://inaturalist-open-data.s3.amazonaws.com/photos/351446507/medium.jpg,N-H
+13/02/2024,-23.0129357821,-46.6654718722,Atibaia,São Paulo,https://www.inaturalist.org/observations/199296981,https://inaturalist-open-data.s3.amazonaws.com/photos/351446509/medium.jpg,N-H
+21/02/2024,-22.4048726691,-45.1451860355,Delfim Moreira,Minas Gerais,https://www.inaturalist.org/observations/201295838,https://inaturalist-open-data.s3.amazonaws.com/photos/355313795/medium.jpg,N-H
+01/03/2024,-23.2914605277,-45.976346678,São José dos Campos,São Paulo,https://www.inaturalist.org/observations/201358131,https://inaturalist-open-data.s3.amazonaws.com/photos/355437107/medium.jpg,H
+01/03/2024,-23.3669264989,-45.9085430113,São José dos Campos,São Paulo,https://www.inaturalist.org/observations/201358284,https://inaturalist-open-data.s3.amazonaws.com/photos/355437321/medium.jpg,N-H
+03/03/2024,-23.3385243121,-45.8019630966,São José dos Campos,São Paulo,https://www.inaturalist.org/observations/201358373,https://inaturalist-open-data.s3.amazonaws.com/photos/355437444/medium.jpg,H
+03/03/2024,-23.3695613268,-45.9677706151,São José dos Campos,São Paulo,https://www.inaturalist.org/observations/201358474,https://inaturalist-open-data.s3.amazonaws.com/photos/355437533/medium.jpg,N-H
+07/04/2024,-20.4650368126,-42.7280356731,Oratórios,Minas Gerais,https://www.inaturalist.org/observations/205945198,https://inaturalist-open-data.s3.amazonaws.com/photos/364210645/medium.jpg,N-H
+16/04/2024,-22.6857088737,-44.6604033364,São José do Barreiro,São Paulo,https://www.inaturalist.org/observations/215041437,https://inaturalist-open-data.s3.amazonaws.com/photos/380153025/medium.jpeg,N-H
+21/04/2024,-20.9296806729,-42.1512069078,Porciúncula,Rio de Janeiro,https://www.inaturalist.org/observations/211948281,https://inaturalist-open-data.s3.amazonaws.com/photos/374603178/medium.jpg,H
+27/04/2024,-23.3780934087,-45.8466546961,São José dos Campos,São Paulo,https://www.inaturalist.org/observations/222520785,https://inaturalist-open-data.s3.amazonaws.com/photos/394180271/medium.jpg,N-H
+01/05/2024,-22.9111596906,-45.8055740174,São José dos Campos,São Paulo,https://www.inaturalist.org/observations/235572691,https://static.inaturalist.org/photos/418972743/medium.jpeg,N-H
+06/05/2024,-23.3861996033,-45.9862809761,São José dos Campos,São Paulo,https://www.inaturalist.org/observations/219325486,https://static.inaturalist.org/photos/388197838/medium.jpeg,N-H
+10/05/2024,-22.9673652987,-46.3808733856,Extrema,Minas Gerais,https://www.inaturalist.org/observations/221633622,https://static.inaturalist.org/photos/392509231/medium.jpeg,N-H
+15/05/2024,-23.3037501233,-46.3297963348,Nazaré Paulista,São Paulo,https://www.inaturalist.org/observations/258286583,https://inaturalist-open-data.s3.amazonaws.com/photos/463370451/medium.jpg,N-H
+15/05/2024,-23.0789274335,-46.3809931344,Nazaré Paulista,São Paulo,https://www.inaturalist.org/observations/259932397,https://inaturalist-open-data.s3.amazonaws.com/photos/466701636/medium.jpg,N-H
+18/05/2024,-23.4439265869,-46.6411334307,São Paulo,São Paulo,https://www.inaturalist.org/observations/216644349,https://inaturalist-open-data.s3.amazonaws.com/photos/383163058/medium.jpeg,N-H
+19/05/2024,-22.1956970851,-45.1190259163,São Lourenço,Minas Gerais,https://www.inaturalist.org/observations/216963917,https://inaturalist-open-data.s3.amazonaws.com/photos/383764952/medium.jpeg,N-H
+30/05/2024,-23.5234862929,-46.0722793958,Mogi das Cruzes,São Paulo,https://www.inaturalist.org/observations/219555418,https://static.inaturalist.org/photos/388626123/medium.jpg,N-H
+31/05/2024,-23.2336271456,-45.8223949366,São José dos Campos,São Paulo,https://www.inaturalist.org/observations/235640385,https://static.inaturalist.org/photos/419100863/medium.jpeg,H
+31/05/2024,-23.2313972101,-45.893732821,São José dos Campos,São Paulo,https://www.inaturalist.org/observations/235897746,https://static.inaturalist.org/photos/419597261/medium.jpeg,N-H
+02/06/2024,-23.2922076566,-45.7317236792,Paraibuna,São Paulo,https://www.inaturalist.org/observations/221017351,https://static.inaturalist.org/photos/391367546/medium.jpeg,N-H
+02/06/2024,-20.8689429567,-42.0140021942,Porciúncula,Rio de Janeiro,https://www.inaturalist.org/observations/228415034,https://inaturalist-open-data.s3.amazonaws.com/photos/405331730/medium.jpg,N-H
+15/06/2024,-22.1577343197,-45.1229549203,São Lourenço,Minas Gerais,https://www.inaturalist.org/observations/245567413,https://inaturalist-open-data.s3.amazonaws.com/photos/438231054/medium.jpeg,N-H
+16/06/2024,-20.932121837,-42.0955201964,Tombos,Minas Gerais,https://www.inaturalist.org/observations/223264937,https://inaturalist-open-data.s3.amazonaws.com/photos/395574918/medium.jpeg,H
+27/06/2024,-24.1742809785,-47.0758182772,Pedro de Toledo,São Paulo,https://www.inaturalist.org/observations/225533543,https://inaturalist-open-data.s3.amazonaws.com/photos/399866290/medium.jpeg,N-H
+06/07/2024,-22.8519893814,-45.9388549065,São José dos Campos,São Paulo,https://www.inaturalist.org/observations/235570597,https://static.inaturalist.org/photos/418968400/medium.jpeg,N-H
+21/07/2024,-22.183770726,-42.7043509168,Sumidouro,Rio de Janeiro,https://www.inaturalist.org/observations/230842136,https://inaturalist-open-data.s3.amazonaws.com/photos/409918587/medium.jpeg,N-H
+24/07/2024,-23.2243625151,-45.7504520234,Paraibuna,São Paulo,https://www.inaturalist.org/observations/235632049,https://static.inaturalist.org/photos/419083376/medium.jpeg,N-H
+31/07/2024,-22.5841419911,-45.7641880016,Conceição dos Ouros,Minas Gerais,https://www.inaturalist.org/observations/234406720,https://static.inaturalist.org/photos/416704162/medium.jpg,N-H
+15/08/2024,-22.4392452726,-42.924815135,Teresópolis,Rio de Janeiro,https://www.inaturalist.org/observations/236236972,https://static.inaturalist.org/photos/420255489/medium.jpg,N-H
+18/08/2024,-22.5952728608,-43.059838792,Petrópolis,Rio de Janeiro,https://www.inaturalist.org/observations/236777532,https://static.inaturalist.org/photos/421290075/medium.jpeg,N-H
+20/08/2024,-23.6554334229,-45.618912497,Salesópolis,São Paulo,https://www.inaturalist.org/observations/265191052,https://static.inaturalist.org/photos/476296947/medium.jpeg,N-H
+02/09/2024,-23.2151449738,-46.286829545,Aruja,São Paulo,https://www.inaturalist.org/observations/240571668,https://inaturalist-open-data.s3.amazonaws.com/photos/428623834/medium.jpeg,H
+03/09/2024,-21.5607560283,-46.1195146879,Serranópolis de Minas,Minas Gerais,https://www.inaturalist.org/observations/239901541,https://static.inaturalist.org/photos/427335678/medium.jpeg,N-H
+14/09/2024,-23.5554558522,-46.1322232444,Guaratinguetá,São Paulo,https://www.inaturalist.org/observations/246321031,https://static.inaturalist.org/photos/439716485/medium.jpeg,N-H
+22/10/2024,-23.5480579416,-45.6379642423,Santa Branca,São Paulo,https://www.inaturalist.org/observations/257258418,https://inaturalist-open-data.s3.amazonaws.com/photos/461439869/medium.jpeg,N-H
+25/10/2024,-23.5512095847,-46.1651457647,Mogi das Cruzes,São Paulo,https://www.inaturalist.org/observations/249376511,https://inaturalist-open-data.s3.amazonaws.com/photos/445768954/medium.jpeg,N-H
+25/10/2024,-23.5340514641,-46.178621727,Mogi das Cruzes,São Paulo,https://www.inaturalist.org/observations/249382196,https://inaturalist-open-data.s3.amazonaws.com/photos/445770373/medium.jpeg,H
+26/10/2024,-22.3842878404,-42.420687217,Nova Friburgo,Rio de Janeiro,https://www.inaturalist.org/observations/254728675,https://inaturalist-open-data.s3.amazonaws.com/photos/456329309/medium.jpeg,N-H
+02/11/2024,-22.492164198,-43.0106585355,Petrópolis,Rio de Janeiro,https://www.inaturalist.org/observations/270451940,https://inaturalist-open-data.s3.amazonaws.com/photos/486384782/medium.jpg,H
+15/11/2024,-22.2319164914,-42.421414865,Nova Friburgo,Rio de Janeiro,https://www.inaturalist.org/observations/272670712,https://inaturalist-open-data.s3.amazonaws.com/photos/490563826/medium.jpeg,N-H
+26/11/2024,-23.5103840626,-46.1400982905,Guaratinguetá,São Paulo,https://www.inaturalist.org/observations/254849667,https://inaturalist-open-data.s3.amazonaws.com/photos/456578248/medium.jpeg,N-H
+30/11/2024,-22.1367502332,-45.0857519098,São Lourenço,Minas Gerais,https://www.inaturalist.org/observations/254026771,https://static.inaturalist.org/photos/454926256/medium.jpeg,N-H
+08/12/2024,-23.6736378532,-45.7650501615,Salesópolis,São Paulo,https://www.inaturalist.org/observations/265057109,https://inaturalist-open-data.s3.amazonaws.com/photos/476032091/medium.jpg,N-H
+13/12/2024,-21.891982871,-42.3361845221,Cantagalo,Rio de Janeiro,https://www.inaturalist.org/observations/263118052,https://inaturalist-open-data.s3.amazonaws.com/photos/472628169/medium.jpg,N-H
+18/12/2024,-23.4530017729,-45.8510994445,Salesópolis,São Paulo,https://www.inaturalist.org/observations/258057402,https://inaturalist-open-data.s3.amazonaws.com/photos/462939232/medium.jpg,H
+03/01/2025,-23.2035627508,-45.1065078058,Cunha,São Paulo,https://www.inaturalist.org/observations/259675841,https://inaturalist-open-data.s3.amazonaws.com/photos/466194490/medium.jpeg,N-H
+12/01/2025,-23.2908229922,-46.3698973995,Santa Isabel,São Paulo,https://www.inaturalist.org/observations/258278948,https://static.inaturalist.org/photos/463355258/medium.jpeg,N-H
+19/01/2025,-22.1962653096,-45.0310762874,São Lourenço,Minas Gerais,https://www.inaturalist.org/observations/263110501,https://inaturalist-open-data.s3.amazonaws.com/photos/472611891/medium.jpeg,N-H
+23/01/2025,-23.6438141188,-45.7491147114,Salesópolis,São Paulo,https://www.inaturalist.org/observations/259430256,https://static.inaturalist.org/photos/465704253/medium.jpeg,N-H
+23/01/2025,-23.222746546,-45.9213921494,São José dos Campos,São Paulo,https://www.inaturalist.org/observations/276159648,https://static.inaturalist.org/photos/495997053/medium.jpeg,N-H
+26/01/2025,-22.35114837,-45.625404856,Cachoeira de Minas,Minas Gerais,https://www.inaturalist.org/observations/259709869,https://static.inaturalist.org/photos/466262022/medium.jpeg,N-H
+31/01/2025,-23.1410912877,-45.8967151121,São José dos Campos,São Paulo,https://www.inaturalist.org/observations/260863659,https://inaturalist-open-data.s3.amazonaws.com/photos/468545672/medium.jpg,N-H
+13/02/2025,-23.2518735695,-45.9886504472,São José dos Campos,São Paulo,https://www.inaturalist.org/observations/261572475,https://static.inaturalist.org/photos/469952811/medium.jpeg,N-H
+04/03/2025,-23.5896871015,-46.1836170133,Guaratinguetá,São Paulo,https://www.inaturalist.org/observations/263868670,https://inaturalist-open-data.s3.amazonaws.com/photos/474113887/medium.jpeg,N-H
+08/03/2025,-23.2946076141,-46.8214919898,Jundiaí,São Paulo,https://www.inaturalist.org/observations/264647522,https://inaturalist-open-data.s3.amazonaws.com/photos/475234567/medium.jpeg,H
+09/03/2025,-23.4914300527,-46.0526512751,Mogi das Cruzes,São Paulo,https://www.inaturalist.org/observations/264962940,https://static.inaturalist.org/photos/475846742/medium.jpg,N-H
+09/03/2025,-23.3384021868,-46.4609367993,Mairiporã,São Paulo,https://www.inaturalist.org/observations/265212887,https://inaturalist-open-data.s3.amazonaws.com/photos/476339795/medium.jpg,N-H
+12/03/2025,-23.751139471,-45.6034152081,Salesópolis,São Paulo,https://www.inaturalist.org/observations/278637680,https://inaturalist-open-data.s3.amazonaws.com/photos/500321281/medium.jpeg,N-H
+13/03/2025,-23.2301381812,-46.3071506215,Aruja,São Paulo,https://www.inaturalist.org/observations/265183707,https://static.inaturalist.org/photos/476282614/medium.jpeg,H
+16/03/2025,-23.1771827522,-44.5918704836,Parati,Rio de Janeiro,https://www.inaturalist.org/observations/265772373,https://inaturalist-open-data.s3.amazonaws.com/photos/477437761/medium.jpg,N-H
+21/03/2025,-22.8677131503,-45.8695765615,São José dos Campos,São Paulo,https://www.inaturalist.org/observations/268580697,https://static.inaturalist.org/photos/482790809/medium.jpg,N-H
+22/03/2025,-22.0763314826,-42.8639061333,Sapucaia,Rio de Janeiro,https://www.inaturalist.org/observations/266477350,https://static.inaturalist.org/photos/478789393/medium.jpg,N-H
+18/04/2025,-23.0743886442,-45.1535970137,Cunha,São Paulo,https://www.inaturalist.org/observations/271412742,https://inaturalist-open-data.s3.amazonaws.com/photos/488212183/medium.jpeg,H
+22/04/2025,-23.6392478139,-45.9613160945,Salesópolis,São Paulo,https://www.inaturalist.org/observations/272269504,https://static.inaturalist.org/photos/489821719/medium.jpeg,N-H
+09/05/2025,-22.085907384,-45.1994603677,São Lourenço,Minas Gerais,https://www.inaturalist.org/observations/279821624,https://inaturalist-open-data.s3.amazonaws.com/photos/502513613/medium.jpg,N-H
+18/05/2025,-22.5810367658,-43.1393870805,Petrópolis,Rio de Janeiro,https://www.inaturalist.org/observations/282365794,https://static.inaturalist.org/photos/507292896/medium.jpg,H
+20/05/2025,-23.3648068699,-46.8773205417,Jundiaí,São Paulo,https://www.inaturalist.org/observations/282757107,https://inaturalist-open-data.s3.amazonaws.com/photos/508028631/medium.jpg,N-H
+22/05/2025,-23.5340926364,-45.9393922165,Salesópolis,São Paulo,https://www.inaturalist.org/observations/283178070,https://static.inaturalist.org/photos/508807708/medium.jpg,N-H

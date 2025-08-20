@@ -1,0 +1,72 @@
+# =================================================================
+# Ambientes Virtuais e Configurações de Ambiente
+# =================================================================
+# Pastas de ambientes virtuais
+.venv/
+venv/
+env/
+
+# Arquivos de variáveis de ambiente (contêm segredos)
+.env
+.env.*
+!.env.example
+
+
+# =================================================================
+# Dependências e Ferramentas de Build
+# =================================================================
+# Cache de ferramentas de build e pacotes (ex: pip, poetry)
+.eggs/
+*.egg-info/
+dist/
+build/
+.poetry/
+
+
+# =================================================================
+# Arquivos de Cache do Python e Ferramentas
+# =================================================================
+# Cache de bytecode do Python
+__pycache__/
+*.pyc
+
+# Cache de ferramentas de teste e análise de código
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+
+# Cache do Jupyter Notebook
+.ipynb_checkpoints/
+
+
+# =================================================================
+# Logs e Saídas Geradas pelo Projeto
+# =================================================================
+# Arquivos de log
+*.log
+nohup.out
+install.log
+
+# Arquivos de comandos ou temporários
+commands.txt
+
+# Saídas de modelos, notebooks e processos
+checkpoints/
+notebooks/outputs/
+outputs/
+data/images_cache/
+
+
+# =================================================================
+# Arquivos de Sistema Operacional e IDEs
+# =================================================================
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/

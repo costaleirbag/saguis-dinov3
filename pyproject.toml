@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "saguis-dinov3"
+version = "0.1.0"
+description = ""
+authors = ["Gabriel Costa <gabriel.alexandre98@hotmail.com>"]
+readme = "README.md"
+packages = [
+  { include = "app", from = "src" }
+]
+
+[tool.poetry.dependencies]
+python = ">=3.12, <3.14"
+streamlit = "^1.48.1"
+pandas = "^2.3.1"
+numpy = "^2.3.2"
+joblib = "^1.5.1"
+scikit-learn = "^1.7.1"
+streamlit-folium = "^0.25.1"
+folium = "^0.20.0"
+pillow = "^11.3.0"
+requests = "^2.32.5"
+torch = "^2.8.0"
+torchvision = "^0.23.0"
+transformers = {path = "/Users/costaleirbag/transformers"}
+xgboost = ">=2.0,<3.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
