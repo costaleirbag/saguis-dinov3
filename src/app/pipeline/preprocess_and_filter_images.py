@@ -2,7 +2,7 @@ import argparse
 import json
 from pathlib import Path
 from glob import glob
-from typing import List, Optional, Tuple
+from typing import List, Optional, Tuple, Dict, Any
 
 import numpy as np
 import pandas as pd
@@ -134,6 +134,131 @@ def prefetch_rows(rows_iter, prefetch: int, max_workers: int = 8):
             r0, f0 = futures.popleft()
             pil, size = f0.result()
             yield r0, pil, size
+
+def process_image(
+    image_url: str,
+    model: YOLO,
+    *,
+    device: Optional[str] = None,
+    # 1ª passada (iguais ao script)
+    conf: float = 0.25,
+    iou: float = 0.50,
+    imgsz: int = 0,     # 0 -> default do modelo
+    max_det: int = 5,
+    # fallback (indulgente)
+    conf_fb: Optional[float] = None,   # None -> max(0.05, conf*0.6)
+    iou_fb: Optional[float] = None,    # None -> min(0.70, iou+0.10)
+    imgsz_fb: Optional[int] = None,    # None -> max(1280, imgsz or 640)
+    # filtros geométricos (iguais ao script)
+    min_area_ratio: float = 0.05,
+    min_side_px: int = 32,
+    max_ar: float = 6.0,
+    expand: float = 0.10,
+    # classes COCO
+    classes: Optional[List[int]] = None,
+    box_select_mode: str = "conf_area",
+) -> Optional[Dict[str, Any]]:
+    """
+    Processa uma única imagem (URL) com a mesma lógica do treino.
+    Retorna dict com:
+      - crop: PIL.Image
+      - bbox_xyxy: [x1,y1,x2,y2] (expandida)
+      - bbox_raw_xyxy: [x1,y1,x2,y2] (detecção original)
+      - conf, cls, cls_name, area_ratio, image_size, params
+    Ou None se nada válido após filtros.
+    """
+    pil = load_pil_from_url(image_url)
+    if pil is None:
+        return None
+    pil = ImageOps.exif_transpose(pil).convert("RGB")
+    w, h = pil.size
+
+    # 1ª passada
+    res1 = model.predict(
+        pil,
+        verbose=False,
+        device=device,
+        conf=conf,
+        iou=iou,
+        max_det=max_det,
+        classes=classes,
+        imgsz=(imgsz or None),
+    )
+    boxes = res1 and res1[0].boxes
+    has_det = bool(boxes) and len(boxes) > 0
+
+    # fallback indulgente
+    if not has_det:
+        conf_fb = max(0.05, conf * 0.6) if conf_fb is None else conf_fb
+        iou_fb  = min(0.70, iou + 0.10) if iou_fb is None else iou_fb
+        imgsz_fb = max(1280, (imgsz or 640)) if imgsz_fb is None else imgsz_fb
+        res2 = model.predict(
+            pil,
+            verbose=False,
+            device=device,
+            conf=conf_fb,
+            iou=iou_fb,
+            max_det=max(15, max_det),
+            classes=classes,
+            imgsz=imgsz_fb,
+        )
+        boxes = res2 and res2[0].boxes
+        has_det = bool(boxes) and len(boxes) > 0
+
+    if not has_det:
+        return None
+
+    boxes_xyxy = boxes.xyxy.cpu().numpy()
+    confs = boxes.conf.cpu().numpy().tolist()
+    clss = boxes.cls.cpu().numpy().tolist() if boxes.cls is not None else []
+
+    # filtros geométricos
+    areas, keep_idx = [], []
+    for j, (x1, y1, x2, y2) in enumerate(boxes_xyxy):
+        bw, bh = max(0, x2 - x1), max(0, y2 - y1)
+        if bw < min_side_px or bh < min_side_px:
+            continue
+        big, small = (bw, bh) if bw >= bh else (bh, bw)
+        if small == 0 or (big / small) > max_ar:
+            continue
+        areas.append(bw * bh)
+        keep_idx.append(j)
+    if not keep_idx:
+        return None
+
+    confs_kept = [confs[j] for j in keep_idx]
+    areas_kept = [areas[j] for j in range(len(keep_idx))]
+    sel_local = choose_box(confs_kept, areas_kept, mode=box_select_mode)
+    j_sel = keep_idx[sel_local]
+    x1, y1, x2, y2 = boxes_xyxy[j_sel]
+
+    area = max(1.0, (x2 - x1) * (y2 - y1))
+    area_ratio = float(area / (w * h + 1e-9))
+    if area_ratio < min_area_ratio:
+        return None
+
+    ex1, ey1, ex2, ey2 = expand_and_clamp_bbox((x1, y1, x2, y2), w, h, expand)
+    crop = pil.crop((ex1, ey1, ex2, ey2))
+
+    cls_name = (COCO80[int(clss[j_sel])] if clss and 0 <= int(clss[j_sel]) < len(COCO80) else None)
+
+    return {
+        "crop": crop,
+        "bbox_xyxy": [int(ex1), int(ey1), int(ex2), int(ey2)],          # expandida
+        "bbox_raw_xyxy": [int(x1), int(y1), int(x2), int(y2)],          # original
+        "conf": float(confs[j_sel]),
+        "cls": int(clss[j_sel]) if clss else None,
+        "cls_name": cls_name,
+        "area_ratio": float(area_ratio),
+        "image_size": [w, h],
+        "params": {
+            "conf": conf, "iou": iou, "imgsz": (imgsz or None),
+            "conf_fb": conf_fb, "iou_fb": iou_fb, "imgsz_fb": imgsz_fb,
+            "max_det": max_det, "expand": expand,
+            "min_area_ratio": min_area_ratio, "min_side_px": min_side_px, "max_ar": max_ar,
+            "classes": classes, "box_select_mode": box_select_mode,
+        }
+    }
 
 def main():
     p = argparse.ArgumentParser(description="Preprocessa, filtra e recorta imagens com YOLOv8 (COCO opcional).")

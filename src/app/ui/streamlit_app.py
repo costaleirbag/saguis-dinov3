@@ -11,6 +11,7 @@ import requests
 from ultralytics import YOLO
 
 from app.inference.predictor import SaguiPredictor, PredictorConfig
+from app.pipeline.preprocess_and_filter_images import process_image
 from app.data.images import load_pil_from_url
 
 # =========================
@@ -128,112 +129,6 @@ def load_yolo_model(yolo_model_name: str):
 
 
 # =========================
-# Função principal de recorte YOLO (espelha o pipeline)
-# =========================
-def yolo_preview_crop(
-    yolo_model: YOLO,
-    image: Image.Image,
-    *,
-    device: str = "mps",
-    # fast-first-pass
-    conf_fast: float = 0.25,
-    iou_fast: float = 0.55,
-    imgsz_fast: int = 960,
-    max_det: int = 7,
-    # fallback indulgente
-    conf_fb: float = 0.10,
-    iou_fb: float = 0.70,
-    imgsz_fb: int = 1280,
-    # filtros geométricos
-    min_area_ratio: float = 0.02,
-    min_side_px: int = 16,
-    max_ar: float = 6.0,
-    expand: float = 0.20,
-    # classes COCO
-    classes: Optional[List[int]] = None,
-    box_select_mode: str = "area",
-) -> Optional[Dict[str, Any]]:
-    """Retorna dict com crop e metadados ou None se nada válido."""
-    # 1ª passada (rápida)
-    res1 = yolo_model.predict(
-        image,
-        verbose=False,
-        device=device,
-        conf=conf_fast,
-        iou=iou_fast,
-        max_det=max_det,
-        classes=classes,
-        imgsz=imgsz_fast
-    )
-    boxes = res1 and res1[0].boxes
-    has_det = bool(boxes) and len(boxes) > 0
-
-    # fallback indulgente
-    if not has_det:
-        res2 = yolo_model.predict(
-            image,
-            verbose=False,
-            device=device,
-            conf=conf_fb,
-            iou=iou_fb,
-            max_det=max(15, max_det),
-            classes=classes,
-            imgsz=imgsz_fb,
-            # augment=True,  # se sua versão permitir TTA
-        )
-        boxes = res2 and res2[0].boxes
-        has_det = bool(boxes) and len(boxes) > 0
-
-    if not has_det:
-        return None
-
-    w, h = image.size
-    xyxy = boxes.xyxy.cpu().numpy()
-    confs = boxes.conf.cpu().numpy().tolist()
-    clss  = boxes.cls.cpu().numpy().tolist() if boxes.cls is not None else []
-
-    # filtros geométricos
-    areas, keep = [], []
-    for i,(x1,y1,x2,y2) in enumerate(xyxy):
-        bw, bh = max(0, x2-x1), max(0, y2-y1)
-        if bw < min_side_px or bh < min_side_px:
-            continue
-        big, small = (bw,bh) if bw>=bh else (bh,bw)
-        if small==0 or (big/small) > max_ar:
-            continue
-        areas.append(bw*bh)
-        keep.append(i)
-
-    if not keep:
-        return None
-
-    confs_kept = [confs[i] for i in keep]
-    areas_kept = [areas[j] for j in range(len(keep))]
-    sel = choose_box(confs_kept, areas_kept, box_select_mode)
-    idx = keep[sel]
-    x1, y1, x2, y2 = xyxy[idx]
-    area = max(1.0, (x2-x1)*(y2-y1))
-    area_ratio = float(area/(w*h + 1e-9))
-
-    if area_ratio < min_area_ratio:
-        return None
-
-    ex1, ey1, ex2, ey2 = expand_and_clamp_bbox((x1,y1,x2,y2), w, h, expand)
-    crop_img = image.crop((ex1, ey1, ex2, ey2))
-    cls_name = (COCO80[int(clss[idx])] if clss and 0 <= int(clss[idx]) < len(COCO80) else None)
-
-    return dict(
-        crop=crop_img,
-        conf=float(confs[idx]),
-        cls=int(clss[idx]) if clss else None,
-        cls_name=cls_name,
-        bbox_raw=[int(x1),int(y1),int(x2),int(y2)],
-        bbox_expanded=[int(ex1),int(ey1),int(ex2),int(ey2)],
-        area_ratio=area_ratio
-    )
-
-
-# =========================
 # UI
 # =========================
 st.set_page_config(page_title="Saguis DINOv3 - Demo", layout="wide")
@@ -244,7 +139,7 @@ with st.sidebar:
     st.header("Configuração do Modelo")
     artifacts_path = st.text_input(
         "Caminho do ficheiro de artefactos do modelo (.joblib)",
-        "outputs/final_model_yolo_pca64/final_model_with_pca.joblib"
+        "outputs/final_model_yolo_processed_nopca/final_model.joblib"
     )
     hf_model = st.text_input(
         "Modelo DINOv3 (Hugging Face)",
@@ -346,14 +241,14 @@ with col_right:
             original_image = load_pil_from_url(image_url.strip())
             st.image(original_image, caption="Imagem Original", use_container_width=True)
 
-            # --- Recorte YOLO para visualização (função unificada) ---
-            crop_info = yolo_preview_crop(
-                yolo_model,
-                original_image,
+            # --- Recorte YOLO (usa a mesma função do pipeline) ---
+            crop_info = process_image(
+                image_url=image_url.strip(),
+                model=yolo_model,
                 device=yolo_device,
-                conf_fast=yolo_conf_fast,
-                iou_fast=yolo_iou_fast,
-                imgsz_fast=yolo_imgsz,
+                conf=yolo_conf_fast,
+                iou=yolo_iou_fast,
+                imgsz=yolo_imgsz,
                 max_det=yolo_max_det,
                 conf_fb=yolo_conf_fb,
                 iou_fb=yolo_iou_fb,
@@ -363,7 +258,7 @@ with col_right:
                 max_ar=yolo_max_ar,
                 expand=yolo_expand,
                 classes=classes,
-                box_select_mode=box_select_mode
+                box_select_mode=box_select_mode,
             )
 
             if crop_info:
@@ -374,21 +269,13 @@ with col_right:
                 )
                 with st.expander("Detalhes do recorte"):
                     st.json({
-                        "bbox_raw_xyxy": crop_info["bbox_raw"],
-                        "bbox_expanded_xyxy": crop_info["bbox_expanded"],
+                        "bbox_raw_xyxy": crop_info["bbox_raw_xyxy"],
+                        "bbox_expanded_xyxy": crop_info["bbox_xyxy"],
                         "area_ratio": round(crop_info["area_ratio"], 5),
-                        "params": {
-                            "conf_fast": yolo_conf_fast, "iou_fast": yolo_iou_fast, "imgsz_fast": yolo_imgsz,
-                            "conf_fb": yolo_conf_fb, "iou_fb": yolo_iou_fb, "imgsz_fb": yolo_imgsz_fb,
-                            "max_det": yolo_max_det, "expand": yolo_expand,
-                            "min_area_ratio": yolo_min_area_ratio, "min_side_px": yolo_min_side_px, "max_ar": yolo_max_ar,
-                            "classes": classes, "use_coco_animals": use_coco_animals,
-                            "model": yolo_model_name, "device": yolo_device
-                        }
+                        "params": crop_info["params"] | {"model": yolo_model_name, "device": yolo_device}
                     })
             else:
-                st.info("Nenhuma caixa válida após filtros. "
-                        "Tente diminuir min_area_ratio, min_side_px ou aumentar imgsz / fallback.")
+                st.info("Nenhuma caixa válida após filtros.")
         except Exception as e:
             st.warning(f"Não foi possível carregar ou processar a imagem: {e}")
 
