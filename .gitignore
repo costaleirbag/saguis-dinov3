@@ -58,7 +58,7 @@ notebooks/outputs/
 outputs/
 data/images_cache/
 data/processed_dataset_yolo/
-
+*.pt
 
 # =================================================================
 # Arquivos de Sistema Operacional e IDEs
