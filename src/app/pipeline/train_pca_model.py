@@ -128,7 +128,28 @@ def main():
     print("Relatório de Classificação:")
     print(classification_report(y_test, preds_binary, target_names=["N-H (0)", "H (1)"]))
 
+    cm = confusion_matrix(y_test, preds_binary)
+
+    # Opcional: imprimir a matriz com rótulos para melhor leitura
+    print("\nMatriz de Confusão com Rótulos:")
+    # A matriz é no formato: [[TN, FP], [FN, TP]]
+    print(f"| {'':<10} | {'Previsto N-H':<15} | {'Previsto H':<10} |")
+    print(f"| {'Real N-H':<10} | {cm[0, 0]:<15} | {cm[0, 1]:<10} |")
+    print(f"| {'Real H':<10} | {cm[1, 0]:<15} | {cm[1, 1]:<10} |")
+
     model_path = model_out_dir / "final_model.joblib"
+
+    # Feature importances (map to combined feature names)
+    combined_feature_names = list(emb_feature_names) + list(tab_cols)
+    feature_importances = None
+    if hasattr(model, "feature_importances_"):
+        imps = model.feature_importances_.tolist()
+        feature_importances = [
+            {"feature": fname, "importance": float(imp)}
+            for fname, imp in zip(combined_feature_names, imps)
+        ]
+        # sort desc for readability
+        feature_importances.sort(key=lambda x: x["importance"], reverse=True)
     
     artifacts = {
         "embedding_pipeline": embedding_pipeline,
@@ -139,7 +160,8 @@ def main():
             "tabular": tab_cols
         },
         "best_threshold": best_threshold,
-        "metrics": {"auc": final_auc},
+    "metrics": {"auc": final_auc, "confusion_matrix": dict(zip(["TN", "FP", "FN", "TP"], [int(x) for x in cm.flatten()]))},
+    "feature_importances": feature_importances,
         "tabular_config": {
             "tab_mode": "latlon_time",
             "urban_areas_path": urban_areas_path,

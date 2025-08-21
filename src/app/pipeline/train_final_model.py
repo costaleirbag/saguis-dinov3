@@ -95,6 +95,16 @@ def main():
     print("\n--- Avaliação Final no Conjunto de Teste ---")
     preds_proba = pipeline.predict_proba(X_test)[:, 1]
     
+    # Feature importances (if available)
+    feature_importances = None
+    if hasattr(model, "feature_importances_"):
+        imps = model.feature_importances_.tolist()
+        feature_importances = [
+            {"feature": fname, "importance": float(imp)}
+            for fname, imp in zip(feature_cols, imps)
+        ]
+        feature_importances.sort(key=lambda x: x["importance"], reverse=True)
+    
     # Encontrar o melhor limiar (threshold) no conjunto de treino para maximizar o F1-score
     train_preds_proba = pipeline.predict_proba(X_train)[:, 1]
     thresholds = np.linspace(0, 1, 100)
@@ -128,6 +138,7 @@ def main():
             "auc": final_auc,
             "accuracy": final_accuracy
         },
+        "feature_importances": feature_importances,
         "tabular_config": {
             "tab_mode": "latlon_time",
             "urban_areas_path": urban_areas_path,

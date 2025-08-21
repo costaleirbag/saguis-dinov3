@@ -9,6 +9,10 @@ import folium
 from PIL import Image, ImageOps
 import requests
 from ultralytics import YOLO
+import streamlit as st
+import joblib
+import pandas as pd
+import plotly.express as px
 
 from app.inference.predictor import SaguiPredictor, PredictorConfig
 from app.pipeline.preprocess_and_filter_images import process_image
@@ -437,7 +441,73 @@ if st.session_state.get('show_results', False):
 
             # Renderize o mapa final
             st_folium(final_map, height=500, width=None)
+        
+        # --- Adicionar esta nova seção ---
+        st.subheader("Detalhes do Modelo")
+        
+        # Carregar os resultados do arquivo joblib
+        results_file_path = 'outputs/tests/urban_geopy/final_model.joblib'
+        try:
+            with open(results_file_path, 'rb') as f:
+                model_details = joblib.load(f)
+        except FileNotFoundError:
+            st.error(f"Arquivo de modelo não encontrado: {results_file_path}")
+            st.stop()
+            
+        with st.expander("Ver detalhes de features e importâncias"):
+            # Verifica se 'feature_importances' existe e é uma lista (o que implica que contém os dicionários)
+            if 'feature_importances' in model_details and isinstance(model_details['feature_importances'], list):
+                feature_importances_data = model_details['feature_importances']
 
+                # Cria um DataFrame diretamente a partir da lista de dicionários
+                # As chaves 'feature' e 'importance' dos dicionários se tornarão as colunas do DataFrame
+                df_features = pd.DataFrame(feature_importances_data)
+
+                # Renomeia as colunas para 'Feature' e 'Importance' para consistência (opcional, mas bom para visualização)
+                df_features.rename(columns={'feature': 'Feature', 'importance': 'Importance'}, inplace=True)
+
+                # Ordena as features pela importância
+                df_features = df_features.sort_values(by='Importance', ascending=False)
+
+                # Formata o nome das features para agrupar os embeddings
+                def format_feature_name(name):
+                    if name.startswith('emb_'):
+                        # Se for uma feature de embedding, retorna um nome genérico para agrupamento
+                        return 'embedding'
+                    # Caso contrário, retorna o nome da feature como está
+                    return name
+
+                df_features['Formatted_Feature'] = df_features['Feature'].apply(format_feature_name)
+
+                # Agrupa por features formatadas e soma as importâncias
+                df_grouped = df_features.groupby('Formatted_Feature')['Importance'].sum().sort_values(ascending=False).reset_index()
+
+                st.write("### Importância das Features (agrupadas por tipo)")
+                # Cria um gráfico de barras interativo usando Plotly
+                fig_grouped = px.bar(df_grouped,
+                                    x='Formatted_Feature',
+                                    y='Importance',
+                                    title='Importância Total por Tipo de Feature',
+                                    labels={'Formatted_Feature': 'Tipo de Feature', 'Importance': 'Importância Total'},
+                                    hover_data={'Formatted_Feature': True, 'Importance': ':.2f'}) # Formata o hover para 2 casas decimais
+
+                # Personaliza o layout do gráfico
+                fig_grouped.update_layout(xaxis_title="Tipo de Feature",
+                                        yaxis_title="Importância Total",
+                                        showlegend=False,
+                                        uniformtext_minsize=8,
+                                        uniformtext_mode='hide')
+
+                st.plotly_chart(fig_grouped, use_container_width=True)
+
+
+                st.write("### Lista completa de Features (Top 20)")
+                # Exibe os resultados das top N features individuais
+                st.dataframe(df_features.head(20).style.format({"Importance": "{:.5f}"}), use_container_width=True)
+
+            else:
+                st.warning("O arquivo de modelo não contém os dados de 'feature_importances' ou está em um formato inesperado.")
+                
     except Exception as e:
         st.error(f"Falha na inferência: {e}")
         st.exception(e)
