@@ -47,6 +47,7 @@ __pycache__/
 *.log
 nohup.out
 install.log
+mlruns/
 
 # Arquivos de comandos ou temporários
 commands.txt
@@ -56,6 +57,7 @@ checkpoints/
 notebooks/outputs/
 outputs/
 data/images_cache/
+data/processed_dataset_yolo/
 
 
 # =================================================================
