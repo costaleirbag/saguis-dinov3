@@ -5,12 +5,17 @@ import numpy as np
 from datetime import datetime
 
 def _parse_date_series(s: pd.Series) -> pd.Series:
-    def _try_parse(x):
-        try:
-            return datetime.strptime(str(x), "%d/%m/%Y")
-        except Exception:
-            return pd.NaT
-    return s.astype(str).apply(_try_parse)
+    """
+    Parses a Series of strings into datetime objects.
+
+    Args:
+        s: A pandas Series with date-like strings.
+
+    Returns:
+        A pandas Series with datetime objects, where unparseable
+        dates are converted to NaT.
+    """
+    return pd.to_datetime(s, format="%d/%m/%Y", errors='coerce')
 
 def engineer_tab_features(
     df: pd.DataFrame,
@@ -38,7 +43,7 @@ def engineer_tab_features(
 
     # tempo
     if "observed_on" in df.columns:
-        dts = _parse_date_series(df["observed_on"])
+        dts = pd.to_datetime(_parse_date_series(df["observed_on"]), errors="coerce")
     else:
         dts = pd.Series(pd.NaT, index=df.index)
 
