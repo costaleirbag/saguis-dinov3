@@ -6,6 +6,7 @@ from pathlib import Path
 import json
 import joblib
 from datetime import datetime
+from pprint import pprint
 
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -24,6 +25,10 @@ def main():
     parser.add_argument("--model_out_dir", type=str, default="outputs/final_model_pca", help="Directory to save the final PCA model")
     parser.add_argument("--test_size", type=float, default=0.2, help="Proportion of the dataset for the test split")
     parser.add_argument("--pca_components", type=int, default=128, help="Number of principal components to keep")
+    # Urban proximity (IBGE)
+    parser.add_argument("--urban_areas_path", type=str, default=None, help="Path to IBGE urban areas dataset (e.g., .gpkg/.geojson/.shp)")
+    parser.add_argument("--urban_layer", type=str, default=None, help="Layer name for GeoPackage (if applicable)")
+    parser.add_argument("--urban_radius_km", type=float, default=None, help="Radius in km for counting nearby urban polygons (default from HPO or 5.0)")
     args = parser.parse_args()
 
     hpo_dir = Path(args.hpo_dir)
@@ -47,8 +52,27 @@ def main():
     df_embs = pd.DataFrame(embedding_matrix, columns=emb_cols, index=df.index)
     # ---------------------------------------------------
 
-    df_tab, tab_cols = engineer_tab_features(df, mode="latlon_time")
-    
+    # Optional: load HPO tabular config to keep features consistent
+    hpo_tab_cfg = {}
+    tab_cfg_file = hpo_dir / "tabular_config.json"
+    if tab_cfg_file.exists():
+        with open(tab_cfg_file, 'r') as f:
+            hpo_tab_cfg = json.load(f)
+
+    urban_areas_path = args.urban_areas_path or hpo_tab_cfg.get("urban_areas_path")
+    urban_layer = args.urban_layer or hpo_tab_cfg.get("urban_layer")
+    urban_radius_km = args.urban_radius_km if args.urban_radius_km is not None else hpo_tab_cfg.get("urban_radius_km", 5.0)
+
+    df_tab, tab_cols = engineer_tab_features(
+        df, mode="latlon_time",
+        urban_areas_path=urban_areas_path,
+        urban_layer=urban_layer,
+        urban_radius_km=urban_radius_km,
+    )
+
+    print("df_tab (first row, as dict):")
+    pprint(df_tab.iloc[0].to_dict(), sort_dicts=False)
+
     print("Dividindo os dados em conjuntos de treino e teste...")
     X_train_embs, X_test_embs, X_train_tab, X_test_tab, y_train, y_test = train_test_split(
         df_embs, df_tab, df['target'], test_size=args.test_size, stratify=df['target'], random_state=42
@@ -115,7 +139,13 @@ def main():
             "tabular": tab_cols
         },
         "best_threshold": best_threshold,
-        "metrics": {"auc": final_auc}
+        "metrics": {"auc": final_auc},
+        "tabular_config": {
+            "tab_mode": "latlon_time",
+            "urban_areas_path": urban_areas_path,
+            "urban_layer": urban_layer,
+            "urban_radius_km": urban_radius_km,
+        }
     }
     joblib.dump(artifacts, model_path)
     print(f"\n[OK] Modelo final com PCA e artefactos salvos em: {model_path}")

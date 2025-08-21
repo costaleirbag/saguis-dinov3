@@ -14,6 +14,17 @@ from app.inference.predictor import SaguiPredictor, PredictorConfig
 from app.pipeline.preprocess_and_filter_images import process_image
 from app.data.images import load_pil_from_url
 
+import geopandas as gpd
+from shapely.geometry import Point
+import folium.plugins
+import json
+
+# =========================
+# Constantes Adicionais
+# =========================
+IBGE_URBAN_AREAS_PATH = "data/geo/ibge_areas_urbanizadas.gpkg"
+IBGE_URBAN_AREAS_LAYER = "lml_area_densamente_edificada_a"
+
 # =========================
 # Config e Constantes
 # =========================
@@ -127,6 +138,20 @@ def load_predictor(artifacts_path: str, hf_model: str, device_prefer: str):
 def load_yolo_model(yolo_model_name: str):
     return YOLO(yolo_model_name)
 
+@st.cache_resource(show_spinner="A carregar dados do IBGE...")
+def load_ibge_urban_areas_cached():
+    """
+    Carrega o GeoDataFrame do IBGE apenas uma vez.
+    """
+    try:
+        if gpd is None:
+             raise ImportError("Geospatial dependencies missing. Run: poetry add geopandas shapely pyproj")
+        
+        return gpd.read_file(IBGE_URBAN_AREAS_PATH, layer=IBGE_URBAN_AREAS_LAYER)
+    except Exception as e:
+        st.error(f"Não foi possível carregar o arquivo do IBGE: {e}")
+        return None
+
 
 # =========================
 # UI
@@ -139,7 +164,7 @@ with st.sidebar:
     st.header("Configuração do Modelo")
     artifacts_path = st.text_input(
         "Caminho do ficheiro de artefactos do modelo (.joblib)",
-        "outputs/final_model_yolo_processed_nopca/final_model.joblib"
+        "outputs/tests/urban_geopy/final_model.joblib"
     )
     hf_model = st.text_input(
         "Modelo DINOv3 (Hugging Face)",
@@ -154,7 +179,7 @@ with st.sidebar:
     st.header("YOLO • Modelo e Parâmetros (Visualização)")
     yolo_model_name = st.selectbox(
         "Modelo YOLOv8",
-        ["yolov8s.pt", "yolov8m.pt", "yolov8l.pt"],
+        ["yolov8l.pt", "yolov8m.pt", "yolov8s.pt"],
         index=0
     )
     yolo_device = st.selectbox("Device YOLO", ["mps","cuda","cpu"], index=0)
@@ -212,11 +237,34 @@ with col_left:
         st.session_state.lat, st.session_state.lon = -22.90, -43.20
 
     if input_mode == "Clicar no mapa":
-        fmap = folium.Map(location=SE_CENTER, zoom_start=SE_ZOOM, control_scale=True, tiles="OpenStreetMap")
-        folium.Marker(location=(st.session_state.lat, st.session_state.lon), popup="Posição atual", draggable=True).add_to(fmap)
-        map_state = st_folium(fmap, height=420, width=None, returned_objects=["last_clicked"])
+        # Cria o mapa sempre centrado no último estado salvo
+        fmap = folium.Map(
+            location=(st.session_state.lat, st.session_state.lon),
+            zoom_start=SE_ZOOM,
+            control_scale=True,
+            tiles="OpenStreetMap"
+        )
+
+        # marcador somente para visualização do ponto atual (NÃO draggable)
+        folium.Marker(
+            location=(st.session_state.lat, st.session_state.lon),
+            popup="Posição atual",
+            icon=folium.Icon(color="red", icon="info-sign")
+        ).add_to(fmap)
+
+        # retorna só o que vamos realmente usar; dê uma key fixa
+        map_state = st_folium(
+            fmap,
+            height=420,
+            width=None,
+            key="se_map",
+            returned_objects=["last_clicked"]  # << importante
+        )
+
+        # Atualiza sessão quando houver clique novo
         if map_state and map_state.get("last_clicked"):
-            lat, lon = map_state["last_clicked"]["lat"], map_state["last_clicked"]["lng"]
+            lat = float(map_state["last_clicked"]["lat"])
+            lon = float(map_state["last_clicked"]["lng"])
             st.session_state.lat, st.session_state.lon = clamp_to_bounds(lat, lon)
     elif input_mode == "Digitar coordenadas":
         c1, c2 = st.columns(2)
@@ -281,15 +329,45 @@ with col_right:
 
 st.markdown("---")
 
-# --- Classificação (sua lógica original, sem mudanças) ---
+# --- Classificação e visualização (VERSÃO FINAL E CORRIGIDA) ---
+# Lógica de controle do estado para manter os resultados na tela
 if run_btn:
+    st.session_state.show_results = True
+
+if st.session_state.get('show_results', False):
     try:
+        # Carregue o GeoDataFrame do IBGE (usando a função cacheada)
+        ibge_gdf = load_ibge_urban_areas_cached()
+        if ibge_gdf is None:
+            st.stop()
+            
+        # Crie um GeoDataFrame para o ponto do usuário
+        user_point_gdf = gpd.GeoDataFrame(
+            {'name': ['Ponto de Avaliação']}, 
+            geometry=[Point(st.session_state.lon, st.session_state.lat)], 
+            crs="EPSG:4326"
+        )
+
+        # Use um CRS métrico para o cálculo de distância
+        user_point_gdf_m = user_point_gdf.to_crs("EPSG:3857")
+        ibge_gdf_m = ibge_gdf.to_crs("EPSG:3857")
+        
+        # Encontre o polígono urbano mais próximo
+        nearest_urban_sjoin = gpd.sjoin_nearest(
+            user_point_gdf_m,
+            ibge_gdf_m,
+            how="left",
+            distance_col="distance_m"
+        )
+        
+        # O resto do seu código de inferência
         result = predictor.predict(
             image=image_url.strip(),
             observed_on=date_str.strip(),
             latitude=float(st.session_state.lat),
-            longitude=float(st.session_state.lon)
+            longitude=float(st.session_state.lon),
         )
+        
         proba = float(result["prob_H"])
         label = result["label"]
         thr = float(result["threshold"])
@@ -299,6 +377,66 @@ if run_btn:
         c1.metric("Palpite", label)
         c2.metric("Prob. (classe H)", f"{proba:.3f}")
         c3.metric("Limiar usado", f"{thr:.3f}")
+        
+        # ==========================================================
+        # Seção de Plotagem da Área Urbana
+        # ==========================================================
+        st.subheader("Área Urbana Próxima")
+        
+        # Crie o mapa centrado no ponto do usuário
+        final_map = folium.Map(
+            location=[st.session_state.lat, st.session_state.lon], 
+            zoom_start=12,
+            tiles="OpenStreetMap"
+        )
+        
+        # Adicione o marcador do ponto avaliado
+        folium.Marker(
+            location=[st.session_state.lat, st.session_state.lon],
+            popup="Ponto de Avaliação",
+            icon=folium.Icon(color="red", icon="info-sign"),
+        ).add_to(final_map)
+
+        # Verifique se uma junção foi encontrada e obtenha o polígono correto
+        if not nearest_urban_sjoin.empty and not nearest_urban_sjoin['index_right'].isna().all():
+            matched_idx = nearest_urban_sjoin['index_right'].iloc[0]
+            # Use o índice para obter o GeoDataFrame do polígono correspondente do IBGE
+            nearest_urban_polygon_gdf = ibge_gdf.loc[[matched_idx]]
+            
+            distance_m = nearest_urban_sjoin["distance_m"].iloc[0]
+
+            # Use o GeoDataFrame corrigido para a plotagem
+            folium.GeoJson(
+                data=nearest_urban_polygon_gdf,
+                style_function=lambda x: {
+                    "fillColor": "blue" if distance_m < 10 else "gray",
+                    "color": "blue" if distance_m < 10 else "gray",
+                    "weight": 2,
+                    "fillOpacity": 0.4
+                },
+                # Corrigido para usar os nomes de coluna reais do seu arquivo
+                tooltip=folium.GeoJsonTooltip(fields=["nome"], aliases=["Nome"])
+            ).add_to(final_map)
+
+            if distance_m < 10:
+                st.info("Ponto localizado **dentro** de uma área urbana.")
+            else:
+                dist_km = distance_m / 1000.0
+                st.info(f"Ponto localizado a **{dist_km:.2f} km** da área urbana mais próxima.")
+                
+                # Adicione uma linha entre o ponto e o centróide do polígono
+                centroid_wgs84 = nearest_urban_polygon_gdf.geometry.centroid.to_crs("EPSG:4326").iloc[0]
+                # ATENÇÃO: Corrigido o nome da classe de PolyLine para Polyline
+                folium.PolyLine(
+                    locations=[(st.session_state.lat, st.session_state.lon), 
+                            (centroid_wgs84.y, centroid_wgs84.x)],
+                    color='gray',
+                    weight=1,
+                    dash_array='5, 5'
+                ).add_to(final_map)
+
+            # Renderize o mapa final
+            st_folium(final_map, height=500, width=None)
 
     except Exception as e:
         st.error(f"Falha na inferência: {e}")

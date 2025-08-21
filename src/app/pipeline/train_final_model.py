@@ -22,6 +22,10 @@ def main():
     parser.add_argument("--hpo_dir", type=str, required=True, help="Directory containing hyperparameter search results (best_params.json, feature_list.json)")
     parser.add_argument("--model_out_dir", type=str, default="outputs/final_model", help="Directory to save the final trained model and artifacts")
     parser.add_argument("--test_size", type=float, default=0.2, help="Proportion of the dataset to include in the test split")
+    # Optional override for urban proximity features (fallback to HPO config if present)
+    parser.add_argument("--urban_areas_path", type=str, default=None)
+    parser.add_argument("--urban_layer", type=str, default=None)
+    parser.add_argument("--urban_radius_km", type=float, default=None)
     args = parser.parse_args()
 
     hpo_dir = Path(args.hpo_dir)
@@ -34,6 +38,12 @@ def main():
         best_params = json.load(f)
     with open(hpo_dir / "feature_list.json", 'r') as f:
         feature_cols = json.load(f)
+    # Try load tabular config saved during HPO for reproducibility
+    hpo_tab_cfg = {}
+    tab_cfg_file = hpo_dir / "tabular_config.json"
+    if tab_cfg_file.exists():
+        with open(tab_cfg_file, 'r') as f:
+            hpo_tab_cfg = json.load(f)
 
     # --- 2. Preparar os Dados ---
     print("Carregando e preparando o dataset completo...")
@@ -43,7 +53,17 @@ def main():
     # Recriar as features exatamente como na otimização
     emb_cols = [c for c in df.columns if c.startswith("emb_")]
     df_embs = df[emb_cols]
-    df_tab, _ = engineer_tab_features(df, mode="latlon_time")
+    # Determine urban proximity config (CLI overrides HPO saved config)
+    urban_areas_path = args.urban_areas_path or hpo_tab_cfg.get("urban_areas_path")
+    urban_layer = args.urban_layer or hpo_tab_cfg.get("urban_layer")
+    urban_radius_km = args.urban_radius_km if args.urban_radius_km is not None else hpo_tab_cfg.get("urban_radius_km", 5.0)
+
+    df_tab, _ = engineer_tab_features(
+        df, mode="latlon_time",
+        urban_areas_path=urban_areas_path,
+        urban_layer=urban_layer,
+        urban_radius_km=urban_radius_km,
+    )
     X = pd.concat([df_embs, df_tab], axis=1)[feature_cols] # Garante a ordem correta
     y = df['target']
 
@@ -107,6 +127,12 @@ def main():
         "metrics": {
             "auc": final_auc,
             "accuracy": final_accuracy
+        },
+        "tabular_config": {
+            "tab_mode": "latlon_time",
+            "urban_areas_path": urban_areas_path,
+            "urban_layer": urban_layer,
+            "urban_radius_km": urban_radius_km,
         }
     }
     joblib.dump(artifacts, model_path)

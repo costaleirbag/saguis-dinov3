@@ -57,8 +57,10 @@ checkpoints/
 notebooks/outputs/
 outputs/
 data/images_cache/
+data/geo/
 data/processed_dataset_yolo/
-
+*.pt
+sandbox.ipynb
 
 # =================================================================
 # Arquivos de Sistema Operacional e IDEs
