@@ -6,6 +6,7 @@ from pathlib import Path
 import json
 import joblib
 from datetime import datetime
+from pprint import pprint
 
 from sklearn.model_selection import StratifiedKFold
 from sklearn.preprocessing import StandardScaler
@@ -73,6 +74,10 @@ def main():
     parser.add_argument("--n_trials", type=int, default=50, help="Number of optimization trials to run")
     parser.add_argument("--out_dir", type=str, default="outputs/hyperparam_search", help="Directory to save results")
     parser.add_argument("--experiment_name", type=str, default="Saguis-Classifier-HPO", help="Name for the MLflow experiment")
+    # Urban proximity (IBGE)
+    parser.add_argument("--urban_areas_path", type=str, default=None, help="Path to IBGE urban areas dataset (e.g., .gpkg/.geojson/.shp)")
+    parser.add_argument("--urban_layer", type=str, default=None, help="Layer name for GeoPackage (if applicable)")
+    parser.add_argument("--urban_radius_km", type=float, default=5.0, help="Radius in km for counting nearby urban polygons")
     args = parser.parse_args()
 
     out_dir = Path(args.out_dir)
@@ -84,7 +89,24 @@ def main():
 
     emb_cols = [c for c in df.columns if c.startswith("emb_")]
     df_embs = df[emb_cols]
-    df_tab, tab_cols = engineer_tab_features(df, mode=args.tab_mode)
+    df_tab, tab_cols = engineer_tab_features(
+        df, mode=args.tab_mode,
+        urban_areas_path=args.urban_areas_path,
+        urban_layer=args.urban_layer,
+        urban_radius_km=args.urban_radius_km,
+    )
+    # Logging: confirm whether urban features were included
+    urban_cols = [c for c in tab_cols if c.startswith("in_urban") or c.startswith("dist_urban_") or c.startswith("urban_count_within_")]
+    
+    if args.urban_areas_path:
+        if urban_cols:
+            print(f"[Urban] Features adicionadas: {urban_cols}")
+        else:
+            print("[Urban] Aviso: Nenhuma feature urbana detectada. Verifique o caminho/ camada fornecidos.")
+
+    print("df_tab (first row, as dict):")
+    pprint(df_tab.iloc[0].to_dict(), sort_dicts=False)
+
     X = pd.concat([df_embs, df_tab], axis=1)
     feature_cols = emb_cols + tab_cols
     X = X[feature_cols]
@@ -100,6 +122,13 @@ def main():
     # mlflow.set_tracking_uri("http://127.0.0.1:5000") # Comentado para usar o modo de ficheiros
 
     with mlflow.start_run(run_name=f"Optuna_Study_{datetime.now().strftime('%Y%m%d_%H%M%S')}"):
+        # log dataset/feature config
+        mlflow.log_params({
+            "tab_mode": args.tab_mode,
+            "urban_areas_path": args.urban_areas_path or "",
+            "urban_layer": args.urban_layer or "",
+            "urban_radius_km": args.urban_radius_km,
+        })
         print(f"Iniciando busca de hiperparâmetros com MLflow. Veja em http://localhost:5000")
         
         study = optuna.create_study(direction='maximize')
@@ -129,6 +158,17 @@ def main():
     with open(features_path, 'w') as f:
         json.dump(feature_cols, f, indent=2)
     print(f"Lista de features salva em: {features_path}")
+
+    # Save tabular/urban config for reproducibility
+    tabcfg_path = out_dir / "tabular_config.json"
+    with open(tabcfg_path, 'w') as f:
+        json.dump({
+            "tab_mode": args.tab_mode,
+            "urban_areas_path": args.urban_areas_path,
+            "urban_layer": args.urban_layer,
+            "urban_radius_km": args.urban_radius_km,
+        }, f, indent=2)
+    print(f"Config de features tabulares salva em: {tabcfg_path}")
 
 
 if __name__ == "__main__":
