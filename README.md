@@ -206,4 +206,4 @@ Este projeto está sob a licença [MIT](LICENSE).
 
 ## Contato
 
-[Seu Nome] - [seu-email@exemplo.com] - [Link para seu LinkedIn/GitHub]
+[Gabriel Costa] - [gabriel.alexandre98@hotmail.com] - [[LinkedIn](https://www.linkedin.com/in/gcosta98/)]
