@@ -59,8 +59,10 @@ outputs/
 data/images_cache/
 data/geo/
 data/processed_dataset_yolo/
+data/
 *.pt
 sandbox.ipynb
+notebooks/*.csv
 
 # =================================================================
 # Arquivos de Sistema Operacional e IDEs
